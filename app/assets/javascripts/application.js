@@ -15,5 +15,4 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require reject_image
 //= require_tree .
