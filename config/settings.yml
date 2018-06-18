@@ -1,0 +1,5 @@
+user_email_maxlen: 255
+user_password_minlen: 6
+user_name_maxlen: 50
+min_score: 0
+varchar_maxlen: 50
