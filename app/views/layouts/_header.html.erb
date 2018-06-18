@@ -1,22 +1,37 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-
       <%= link_to "Foobar News", root_path, class: "navbar-brand" %>
         <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <%= t(".txt_account") %> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to t(".txt_profile"), "#" %></li>
+                      <li><%= link_to t(".txt_settings"), "#" %></li>
+                      <li class="divider"></li>
+                      <li>
+                        <%= link_to t(".txt_logout"), logout_path, method: :delete %>
+                      </li>
+                    </ul>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to t(".txt_login"), login_path %>
+                </li>
+                <li>
+                    <%= link_to t(".txt_signup"), "#" %>
+                </li>
+            <% end %>
             <li>
-                <%= link_to "Login", "#" %>
+                <%= link_to t(".txt_news"), "#" %>
             </li>
             <li>
-                <%= link_to "Signup", "#" %>
+                <%= link_to t(".txt_team"), "#" %>
             </li>
             <li>
-                <%= link_to "News", "#" %>
-            </li>
-            <li>
-                <%= link_to "Team", "#" %>
-            </li>
-            <li>
-                <%= link_to "Contact", "#" %>
+                <%= link_to t(".txt_contact"), "#" %>
             </li>
         </ul>
     </div>
