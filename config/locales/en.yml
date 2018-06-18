@@ -32,3 +32,22 @@
 en:
   hello: "Hello world"
   main_title: "Football News"
+  layouts:
+    header:
+      txt_account: "Account"
+      txt_profile: "Profile"
+      txt_settings: "Settings"
+      txt_logout: "Logout"
+      txt_login: "Login"
+      txt_signup: "Signup"
+      txt_news: "News"
+      txt_team: "Team"
+      txt_contact: "Contact"
+  sessions:
+    new:
+      header: "Log in"
+      label_email: "Email"
+      label_password: "Password"
+      btn_login: "Log in"
+    create:
+      invalid_login_message: "Invalid email/password combination"
