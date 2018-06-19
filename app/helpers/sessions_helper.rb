@@ -30,4 +30,8 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  def authorized_admin? current_user
+    current_user.admin? && !current_user?(@user)
+  end
 end

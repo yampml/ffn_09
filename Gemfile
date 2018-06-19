@@ -14,6 +14,7 @@ gem "config"
 gem "faker", "1.7.3"
 gem "jquery-rails", "4.3.1"
 gem "jquery-turbolinks"
+gem "font-awesome-sass", "~> 5.0.13"
 gem "rubocop", "~> 0.49.1", require: false
 gem "will_paginate", "3.1.6"
 
