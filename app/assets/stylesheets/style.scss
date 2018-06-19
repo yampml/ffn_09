@@ -10,6 +10,7 @@ $dark-gray2: #777;
 $white: #fff;
 $box-gray: rgba(0, 0, 0, 0.3);
 $very-light-gray: #f7f7f7;
+$black: #2b2f34;
 
 /* signupform */
 .form-control{
@@ -111,14 +112,18 @@ $very-light-gray: #f7f7f7;
 }
 .login-form h2 {
   color: $very-dark-gray;
+  text-align: center;
   margin: 0 0 15px;
 }
 .login-form .hint-text {
   color: $dark-gray2;
   margin-top: 10px;
   text-align: center;
+  width: 25%;
+
 }
 .form-control, .btn {
+  color: $black;
   min-height: 38px;
   border-radius: 2px;
 }
@@ -151,4 +156,28 @@ $very-light-gray: #f7f7f7;
 }
 .input-group-addon .fa{
   font-size: 18px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.profile_avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  padding-top: 10px;
+  padding-bottom: 15px;
 }

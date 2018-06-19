@@ -1,5 +1,34 @@
 <% provide :title, @user.name %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1>
+<%= stylesheet_link_tag "body-style" %>
+
+<div class="login-form">
+  <%= form_for @user do |f| %>
+    <div class="profile_avatar">
+      <%= gravatar_for @user %>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i><%= t ".name" %></i></span>
+        <%= f.text_field :name, class: "form-control", readonly: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i><%= t ".email" %></i></span>
+        <%= f.email_field :email, class: "form-control", readonly: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i><%= t ".address" %></i></span>
+        <%= f.text_field :address, class: "form-control", readonly: true %>
+      </div>
+    </div>
+    <%= link_to edit_user_path(current_user) do %>
+      <button type="button" class= "btn btn-success btn-block login-btn"><%= t ".btn_content" %></button>
+    <% end %>
+  <% end %>
+</div>
