@@ -3,3 +3,4 @@ user_password_minlen: 6
 user_name_maxlen: 50
 min_score: 0
 varchar_maxlen: 50
+login_hidden_value: 1

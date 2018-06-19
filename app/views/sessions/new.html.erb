@@ -5,13 +5,19 @@
 <%= stylesheet_link_tag "body-style" %>
 <div class="login-form">
   <%= form_for(:session, url: login_path) do |f| %>
+    <%= hidden_field_tag :normal_login, Settings.login_hidden_value %>
 
     <h2 class="text-center"><%= t ".header" %></h2>
     <div class="text-center social-btn">
-      <a href="#" class="btn btn-primary btn-block"><i class="fa fa-facebook">
-        </i><%= t ".sign_in_with" %><b> <%= t".facebook" %></b></a>
-      <a href="#" class="btn btn-danger btn-block"><i class="fa fa-google">
-        </i><%= t ".sign_in_with" %><b> <%= t".google" %></b></a>
+
+      <%= link_to login_facebook_path, class: "btn btn-primary btn-block" do %>
+        <i class="fa fa-facebook"></i><%= t ".sign_in_with" %><b> <%= t".facebook" %></b>
+      <% end %>
+
+      <%= link_to login_google_path, class: "btn btn-danger btn-block" do %>
+        <i class="fa fa-google"></i><%= t(".sign_in_with") %><b> <%= t".google" %></b>
+      <% end %>
+
     </div>
 
     <div class="or-seperator"><i><%= t".or" %></i></div>
