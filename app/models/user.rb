@@ -18,6 +18,10 @@ class User < ApplicationRecord
   validates :coin, format: {with: VALID_COIN_REGEX},
     numericality: true
 
+  validates :address, presence: true
+
+  validates :password_confirmation, presence: true
+
   enum role: %i(member admin)
 
   has_secure_password
