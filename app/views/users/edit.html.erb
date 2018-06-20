@@ -1,14 +1,10 @@
 <% provide :title, t(".title") %>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<%= stylesheet_link_tag "body-style" %>
 
+<%= stylesheet_link_tag "body-style" %>
 <div class="signup-form">
   <div class="row">
     <%= form_for @user do |f| %>
-      <%= render "shared/error_messages" %>
-      <h2><%= t "register" %></h2>
+      <h2><%= t ".update" %></h2>
       <p class="hint-text"><%= t ".content1" %></p>
 
       <div class="form-group">
@@ -32,9 +28,12 @@
           placeholder: t(".passconfirm_holder") %>
       </div>
 
-      <%= f.submit t(".confirm1"), class: "btn btn-success btn-lg btn-block" %>
-      <div class="text-center"><%= t(".content2")%> <%= link_to t(".signin"),
-        login_path, class: "text-success" %></div>
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
+      <div class="profile_avatar">
+        <%= gravatar_for @user %>
+      </div>
+      <%= link_to t(".link_change_gravatar"), "http://gravatar.com/emails",
+        target: "_blank", class: "hint-text" %>
     <% end %>
   </div>
 </div>
