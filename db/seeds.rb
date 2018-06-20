@@ -17,3 +17,24 @@ User.create! name: "Example User", email: "example@railstutorial.org",
     password: password, password_confirmation: password,
     address: "Ha Noi #{n+1}"
 end
+
+5.times do |n|
+  name = Faker::Name.name
+  Continent.create! name: name
+end
+
+10.times do |n|
+  name = Faker::Name.name
+  Country.create! name: name, continent_id: 1
+end
+
+30.times do |n|
+  name = Faker::Name.name
+  city = "city #{n+1}"
+  coach = "coach #{n+1}"
+  president = "president #{n+1}"
+  stadium = "stadium #{n+1}}"
+  description = Faker::Lorem.sentence 3
+  Team.create! name: name, stadium: stadium, city: city, coach: coach,
+    president: president, description: description
+end

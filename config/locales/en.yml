@@ -126,3 +126,29 @@ en:
       news_create_failed_msg: "News create failed"
     show:
       news_not_found: "News not found"
+  teams:
+    show:
+      flash_team_not_found: "Team not found!"
+      city: "City: %{var}"
+      stadium: "Stadium: %{var}"
+      coach: "Coach: %{var}"
+      president: "President: %{var}"
+      description_title: "Team Description"
+      basic_title: "Basic Information"
+    create:
+      flash_created_team: "Team created"
+      flash_create_failed: "Team create failed"
+    new:
+      btn_text: "Create team"
+    edit:
+      btn_text: "Update team"
+    form:
+      name_holder: "Team name.."
+      city_holder: "City.."
+      stadium_holder: "Stadium.."
+      coach_holder: "Coach.."
+      president_holder: "President.."
+      description_holder: "Description.."
+      pic_title: "Team picture"
+      content1: "Anyway the wind blows.."
+      logo_title: "Team's logo"
