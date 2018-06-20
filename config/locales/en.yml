@@ -124,3 +124,5 @@ en:
     create:
       news_created_succ_mesg: "News created"
       news_create_failed_msg: "News create failed"
+    show:
+      news_not_found: "News not found"
