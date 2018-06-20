@@ -2,6 +2,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_COIN_REGEX = /\A\d{1,8}(\.\d{0,2})?\z/
 
+  has_many :news
   has_many :comments
   has_many :bets
 
