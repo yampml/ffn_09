@@ -27,8 +27,11 @@
         <%= f.text_field :address, class: "form-control", readonly: true %>
       </div>
     </div>
-    <%= link_to edit_user_path(current_user) do %>
-      <button type="button" class= "btn btn-success btn-block login-btn"><%= t ".btn_content" %></button>
+
+    <% if current_user?(@user) %>
+      <%= link_to edit_user_path(current_user) do %>
+        <button type="button" class= "btn btn-success btn-block login-btn"><%= t ".btn_content" %></button>
+      <% end %>
     <% end %>
   <% end %>
 </div>

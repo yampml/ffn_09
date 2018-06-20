@@ -38,8 +38,11 @@ en:
   signup: "Sign up"
   flash_updated_profile: "Your profile has been updated"
   flash_pls_log_in: "Please log in."
+  flash_deleted_user: "User deleted"
+  flash_cannot_delete: "Cannot delete user!"
   layouts:
     header:
+      txt_users: "Users"
       txt_account: "Account"
       txt_profile: "Profile"
       txt_settings: "Settings"
@@ -100,6 +103,11 @@ en:
       email: "Email"
       address: "Address"
       btn_content: "Update your profile"
+    index:
+      title: "All users"
+    user:
+      affirm_msg: "Are you sure?"
+      delete: "delete"
   news:
     new:
       txt_header: "Header"

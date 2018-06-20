@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: %i(new create)
-  before_action :logged_in_user, :correct_user, only: %i(edit update)
+  before_action :load_user, except: %i(index new create)
+  before_action :logged_in_user, only: %i(index edit update)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, only: :destroy
+
+  def index
+    @users = User.all.paginate page: params[:page]
+  end
 
   def show; end
 
@@ -32,6 +38,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t "flash_deleted_user"
+    else
+      flash[:danger] = t "flash_cannot_delete"
+    end
+    redirect_to users_path
+  end
+
   private
 
   def user_params
@@ -40,6 +55,7 @@ class UsersController < ApplicationController
   end
 
   def logged_in_user
+    store_location
     return if logged_in?
     flash[:danger] = t "flash_pls_log_in"
     redirect_to login_path
@@ -47,5 +63,9 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to root_path unless current_user? @user
+  end
+
+  def admin_user
+    redirect_to root_path unless current_user.admin?
   end
 end
