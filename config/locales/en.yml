@@ -49,6 +49,7 @@ en:
       txt_news: "News"
       txt_team: "Team"
       txt_contact: "Contact"
+      admincp: "AdminCP"
   sessions:
     new:
       header: "Log in"
@@ -99,3 +100,19 @@ en:
       email: "Email"
       address: "Address"
       btn_content: "Update your profile"
+  news:
+    new:
+      txt_header: "Header"
+      txt_content: "Content"
+      news_header_placeholder: "News header..."
+      news_content_placeholder: "Compose news..."
+      btn_submit: "Post"
+    sidebar:
+      create_news: "Create News"
+      news_list: "News list"
+      teams: "Teams"
+      seasons: "Seasons"
+      users: "Users"
+    create:
+      news_created_succ_mesg: "News created"
+      news_create_failed_msg: "News create failed"

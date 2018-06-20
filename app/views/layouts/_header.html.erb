@@ -16,6 +16,11 @@
                       </li>
                     </ul>
                 </li>
+                <% if current_user.admin? %>
+                    <li>
+                        <%= link_to t(".admincp"), admincp_show_path %>
+                    </li>
+                <% end %>
             <% else %>
                 <li>
                     <%= link_to t(".txt_login"), login_path %>
