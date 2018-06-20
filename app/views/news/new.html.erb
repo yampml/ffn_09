@@ -7,7 +7,7 @@
       <%= f.text_area :header, placeholder: t(".news_header_placeholder") %>
       <div class="field">
         <%= f.label :content, t(".txt_content") %>
-        <%= f.text_area :content, placeholder: t(".news_content_placeholder") %>
+        <%= f.cktext_area :content, class: "ckeditor" %>
       </div>
       <%= f.submit t(".btn_submit"), class: "btn btn-primary" %>
     <% end %>

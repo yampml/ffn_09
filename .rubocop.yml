@@ -28,6 +28,9 @@ AllCops:
     - 'Capfile'
     - 'Rakefile'
     - 'config.ru'
+    - 'app/models/ckeditor/*'
+    - 'app/uploaders/ckeditor_attachment_file_uploader.rb'
+    - 'app/uploaders/ckeditor_picture_uploader.rb'
 Documentation:
     Enabled: false
 # By default, the rails cops are not run. Override in project or home

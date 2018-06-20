@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   scope "/admincp/" do
     resources :news, except: :show
   end
+
+  mount Ckeditor::Engine => "/ckeditor"
 end
