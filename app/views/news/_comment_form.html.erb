@@ -1,0 +1,10 @@
+<h4><%= t ".leave_a_comment" %></h4>
+<%= form_for @comment, class: "form-group", remote: true do |f| %>
+  <% if logged_in? %>
+    <%= hidden_field_tag :user_id, current_user.id %>
+  <% end %>
+  <%= hidden_field_tag :article_id, @article.id %>
+  <%= f.text_area :content, class: "form-control", rows: Settings.comment_form_rows,
+    placeholder: t(".form_placeholder") %>
+  <%= f.submit t(".btn_post"), class: "btn btn-primary" %>
+<% end %>

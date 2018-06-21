@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :users
   resources :teams, only: :show
   resources :news, only: :show
+  resources :comments, only: %i(create destroy)
+  get "admincp/show"
 
   scope "/admincp/" do
     resources :news, except: :show

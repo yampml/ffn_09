@@ -12,6 +12,7 @@ module FootballNews
     config.load_defaults 5.1
     config.force_ssl = true
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

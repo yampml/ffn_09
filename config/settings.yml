@@ -7,3 +7,4 @@ login_hidden_value: 1
 per_page: 10
 gravatar_size: 50
 gravatar_default_size: 80
+comment_form_rows: "3"

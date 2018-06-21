@@ -5,6 +5,9 @@ class NewsController < ApplicationController
 
   def show
     @article = News.find_by id: params[:id]
+    @comment = @article.comments.build
+    @comments = @article.comments.newest
+    store_location
     return if @article
     flash[:danger] = t ".news_not_found"
     redirect_to root_url

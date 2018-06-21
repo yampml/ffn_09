@@ -40,6 +40,7 @@ en:
   flash_pls_log_in: "Please log in."
   flash_deleted_user: "User deleted"
   flash_cannot_delete: "Cannot delete user!"
+  comment_del_confirm: "Are you sure?"
   layouts:
     header:
       txt_users: "Users"
@@ -126,6 +127,10 @@ en:
       news_create_failed_msg: "News create failed"
     show:
       news_not_found: "News not found"
+    comment_form:
+      leave_a_comment: "Leave a Comment:"
+      form_placeholder: "Compose new comment..."
+      btn_post: "Post"
   teams:
     show:
       flash_team_not_found: "Team not found!"
@@ -152,3 +157,11 @@ en:
       pic_title: "Team picture"
       content1: "Anyway the wind blows.."
       logo_title: "Team's logo"
+      txt_home: "Home"
+  comments:
+    create:
+      comment_failed: "Must have content"
+    destroy:
+      delete_success_msg: "Deleted"
+      delete_failed_msg: "Delete failed"
+      wrong_user: "Wrong user"
