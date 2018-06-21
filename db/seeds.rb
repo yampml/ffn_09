@@ -18,14 +18,16 @@ User.create! name: "Example User", email: "example@railstutorial.org",
     address: "Ha Noi #{n+1}"
 end
 
-5.times do |n|
-  name = Faker::Name.name
+list_continents = ["Africa", "Asia", "Europe", "North America", "South America", "Australia"]
+list_continents.each do |name|
   Continent.create! name: name
 end
 
-10.times do |n|
-  name = Faker::Name.name
-  Country.create! name: name, continent_id: 1
+list_countries = ["Germany", "Brazil", "Belgium", "Portugal", "Argentina",
+  "France", "Poland", "Chile", "Spain", "Peru", "Denmark", "England", "Uruguay",
+  "Mexico", "Colombia", "Italy"]
+list_countries.each do |name|
+  Country.create! name: name, continent_id: 1+rand(6)
 end
 
 30.times do |n|
@@ -34,7 +36,8 @@ end
   coach = "coach #{n+1}"
   president = "president #{n+1}"
   stadium = "stadium #{n+1}}"
-  description = Faker::Lorem.sentence 3
+  description = Faker::Lorem.sentence 6
   Team.create! name: name, stadium: stadium, city: city, coach: coach,
-    president: president, description: description
+    president: president, description: description,
+    remote_picture_url: "https://jamesproctor28blog.files.wordpress.com/2015/06/barca-2015.jpg"
 end

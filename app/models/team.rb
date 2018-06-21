@@ -7,5 +7,5 @@ class Team < ApplicationRecord
   validates :name, presence: true
 
   mount_uploader :picture, PictureUploader
-  mount_uploader :logo, PictureUploader
+  mount_uploader :logo, LogoUploader
 end

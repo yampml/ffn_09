@@ -1,16 +1,12 @@
 <% provide :title, @team.name %>
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><%= @team.name %></h1>
-      <div class="col-md-6">
-        <%= image_tag @team.logo.url if @team.logo? %>
-      </div>
+      <h1 class="page-header"> <%= image_tag @team.logo.url if @team.logo? %> <%= @team.name %></h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7">
       <%= image_tag @team.picture.url if @team.picture? %>
     </div>
     <div class="col-md-4">
@@ -23,6 +19,7 @@
         <li><%= t ".coach", var: @team.coach %></li>
         <li><%= t ".president", var: @team.president %></li>
       </ul>
+      <h3><%= t ".recent_title" %></h3>
     </div>
   </div>
 </div>
