@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "admincp/show"
 
   resources :users
-  resources :teams, only: :show
+  resources :teams, only: %i(show index)
   resources :news, only: :show
   resources :comments, only: %i(create destroy)
   get "admincp/show"

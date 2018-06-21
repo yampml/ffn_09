@@ -1,15 +1,18 @@
-<%= render "sidebar" %>
-
-<div class="main">
-  <div class="container">
-    <%= form_for @article do |f| %>
-      <%= f.label :header, t(".txt_header") %>
-      <%= f.text_area :header, placeholder: t(".news_header_placeholder") %>
-      <div class="field">
-        <%= f.label :content, t(".txt_content") %>
-        <%= f.cktext_area :content, class: "ckeditor" %>
+<%= render "admincp/sidebar" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-9">
+      <div class="well">
+        <%= form_for @article do |f| %>
+        <%= f.label :header, t(".txt_header") %>
+        <%= f.text_area :header, placeholder: t(".news_header_placeholder") %>
+        <div class="field">
+          <%= f.label :content, t(".txt_content") %>
+          <%= f.cktext_area :content, class: "ckeditor" %>
+        </div>
+        <%= f.submit t(".btn_submit"), class: "btn btn-primary" %>
+        <% end %>
       </div>
-      <%= f.submit t(".btn_submit"), class: "btn btn-primary" %>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -41,8 +41,10 @@ en:
   flash_deleted_user: "User deleted"
   flash_cannot_delete: "Cannot delete user!"
   comment_del_confirm: "Are you sure?"
+  flash_warning_user: "You do not have permission to access this action!"
   layouts:
     header:
+      txt_foobar_new: "Foobar News"
       txt_users: "Users"
       txt_account: "Account"
       txt_profile: "Profile"
@@ -116,12 +118,6 @@ en:
       news_header_placeholder: "News header..."
       news_content_placeholder: "Compose news..."
       btn_submit: "Post"
-    sidebar:
-      create_news: "Create News"
-      news_list: "News list"
-      teams: "Teams"
-      seasons: "Seasons"
-      users: "Users"
     create:
       news_created_succ_mesg: "News created"
       news_create_failed_msg: "News create failed"
@@ -140,9 +136,10 @@ en:
       president: "President: %{var}"
       description_title: "Team Description"
       basic_title: "Basic Information"
+      recent_title: "Recent Match"
     create:
       flash_created_team: "Team created"
-      flash_create_failed: "Team create failed"
+      flash_create_failed: "Create team failed"
     new:
       btn_text: "Create team"
     edit:
@@ -158,6 +155,13 @@ en:
       content1: "Anyway the wind blows.."
       logo_title: "Team's logo"
       txt_home: "Home"
+    update:
+      flash_updated_team: "Team updated!"
+      flash_update_failed: "Update team failed"
+    index:
+      title: "All Teams"
+    team:
+      view_details: "View details"
   comments:
     create:
       comment_failed: "Must have content"
@@ -165,3 +169,14 @@ en:
       delete_success_msg: "Deleted"
       delete_failed_msg: "Delete failed"
       wrong_user: "Wrong user"
+  admincp:
+    sidebar:
+      article: "Article"
+      articles: "Articles"
+      create_arc: "Create new article"
+      team: "Team"
+      teams: "All teams"
+      create_team: "Create new team"
+      player: "Player"
+      players: "All players"
+      create_player: "Create new player"

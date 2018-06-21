@@ -1,8 +1,11 @@
-<%= render "sidebar" %>
+<%= render "admincp/sidebar" %>
 <div class="main">
   <div class="container">
-
-    <%= render @articles %>
-    <%= will_paginate @articles %>
+    <div class="col-sm-9 col-md-9">
+      <div class="well">
+        <%= render @articles %>
+        <%= will_paginate @articles %>
+      </div>
+    </div>
   </div>
 </div>
