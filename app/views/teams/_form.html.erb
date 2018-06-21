@@ -1,0 +1,39 @@
+<%= form_for @team do |f| %>
+  <h2><%= t "Team" %></h2>
+  <p class="hint-text"><%= t ".content1" %></p>
+
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control",
+      placeholder: t(".name_holder") %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :city, class: "form-control",
+      placeholder: t(".city_holder") %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :stadium, class: "form-control",
+      placeholder: t(".stadium_holder") %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :coach, class: "form-control",
+      placeholder: t(".coach_holder") %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :president, class: "form-control",
+      placeholder: t(".president_holder") %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control",
+      placeholder: t(".description_holder") %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".pic_title")%>
+    <%= f.file_field :picture, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t(".logo_title")%>
+    <%= f.file_field :logo, class: "form-control" %>
+  </div>
+
+  <%= f.submit yield(:button_text), class: "btn btn-success btn-lg btn-block" %>
+<% end %>

@@ -1,0 +1,28 @@
+<% provide :title, @team.name %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><%= @team.name %></h1>
+      <div class="col-md-6">
+        <%= image_tag @team.logo.url if @team.logo? %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag @team.picture.url if @team.picture? %>
+    </div>
+    <div class="col-md-4">
+      <h3><%= t ".description_title" %></h3>
+      <p><%= @team.description %></p>
+      <h3><%= t ".basic_title" %></h3>
+      <ul>
+        <li><%= t ".city", var: @team.city %></li>
+        <li><%= t ".stadium", var: @team.stadium %></li>
+        <li><%= t ".coach", var: @team.coach %></li>
+        <li><%= t ".president", var: @team.president %></li>
+      </ul>
+    </div>
+  </div>
+</div>
