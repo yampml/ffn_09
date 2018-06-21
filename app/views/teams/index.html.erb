@@ -1,12 +1,28 @@
 <% provide :title, t(".title") %>
-<div class="container">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h1><%= t ".title" %></h1>
-      <ul class="users">
-        <%= render @teams %>
-      </ul>
-      <%= will_paginate %>
+<% if authorized_admin? current_user %>
+  <%= render "admincp/sidebar" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-9">
+        <div class="well">
+          <ul class="users">
+            <%= render @teams %>
+          </ul>
+          <%= will_paginate %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1><%= t ".title" %></h1>
+        <ul class="users">
+          <%= render @teams %>
+        </ul>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+<% end %>

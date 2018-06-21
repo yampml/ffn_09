@@ -145,6 +145,7 @@ en:
     edit:
       btn_text: "Update team"
     form:
+      team: "Team"
       name_holder: "Team name.."
       city_holder: "City.."
       stadium_holder: "Stadium.."
@@ -162,6 +163,8 @@ en:
       title: "All Teams"
     team:
       view_details: "View details"
+      edit: "Edit"
+      delete: "Delete"
   comments:
     create:
       comment_failed: "Must have content"
