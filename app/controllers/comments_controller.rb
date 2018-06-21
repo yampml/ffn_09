@@ -1,26 +1,45 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: %i(create destroy)
-  before_action :comment_of_correct_user, only: :destroy
+  before_action :comment_of_correct_user, :load_vaf_for_destroy, only: :destroy
+  before_action :load_var_for_create, only: :create
 
   def create
+    respond_to do |format|
+      if @comment.save
+        format.html{redirect_to @article}
+        format.js
+      else
+        flash[:danger] = t ".comment_failed"
+        format.html{redirect_to @article}
+      end
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      if @comment.destroy
+        flash[:success] = t ".delete_success_msg"
+        format.html{redirect_to @article}
+        format.js
+      else
+        flash[:danger] = t ".delete_failed_msg"
+        format.html{redirect_to @article}
+      end
+    end
+  end
+
+  private
+
+  def load_var_for_create
     @article = News.find_by id: params[:article_id]
     return unless @article
     @comment = @article.comments.build comment_params
     @comment.user_id = current_user.id
-    flash[:danger] = t(".comment_failed") unless @comment.save
-    redirect_to @article
   end
 
-  def destroy
-    if @comment.destroy
-      flash[:success] = t ".delete_success_msg"
-    else
-      flash[:danger] = t ".delete_failed_msg"
-    end
-    redirect_back_or root_url
+  def load_vaf_for_destroy
+    @article = @comment.commentable
   end
-
-  private
 
   def comment_params
     params.require(:comment).permit :content

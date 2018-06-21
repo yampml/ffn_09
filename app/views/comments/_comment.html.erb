@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media" id="comment_<%= comment.id %>">
   <a class="pull-left" href="#">
     <%= gravatar_for comment.user, size: Settings.gravatar_preferred_size %>
   </a>
@@ -8,7 +8,7 @@
         <%= comment.created_at %>
         <% if current_user?(comment.user) %>
           <%= link_to "delete", comment, method: :delete,
-            data: {confirm: t("comment_del_confirm")} %>
+            data: {confirm: t("comment_del_confirm")}, remote: true %>
         <% end %>
       </small>
     </h4>
