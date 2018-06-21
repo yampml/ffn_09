@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "login_google", to: redirect("/auth/google_oauth2"), as: "login_google"
   get "login_facebook", to: redirect("/auth/facebook"), as: "login_facebook"
 
+  resources :news, only: :show
   get "admincp/show"
   scope "/admincp/" do
     resources :news, except: :show

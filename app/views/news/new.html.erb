@@ -2,7 +2,7 @@
 
 <div class="main">
   <div class="container">
-    <%= form_for @news do |f| %>
+    <%= form_for @article do |f| %>
       <%= f.label :header, t(".txt_header") %>
       <%= f.text_area :header, placeholder: t(".news_header_placeholder") %>
       <div class="field">

@@ -1,21 +1,26 @@
 class NewsController < ApplicationController
   def index
-    @newss = News.paginate(page: params[:page], per_page: Settings.per_page)
+    @articles = News.newest.paginate page: params[:page], per_page: Settings.per_page
   end
 
-  def show; end
+  def show
+    @article = News.find_by id: params[:id]
+    return if @article
+    flash[:danger] = t ".news_not_found"
+    redirect_to root_url
+  end
 
   def new
     if current_user.admin?
-      @news = current_user.news.build
+      @article = current_user.news.build
     else
       redirect_to root_url
     end
   end
 
   def create
-    @news = current_user.news.build news_params
-    if @news.save
+    @article = current_user.news.build news_params
+    if @article.save
       flash[:success] = I18n.t "news.create.news_created_succ_mesg"
       redirect_to news_index_url
     else

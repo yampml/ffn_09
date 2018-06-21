@@ -1,7 +1,7 @@
 <li id="<%= news.id %>">
   <span class="user"><%= link_to news.user.name, news.user %></span>
-  <span class="content"><%= news.header %></span>
-  <%= raw news.content %>
+  <span class="content"><%= link_to news.header, news_path(news) %></span>
+  <span class="content"><%= news.content %></span>
   <span class="timestamp">
     <%= time_ago_in_words news.created_at %>
   </span>
