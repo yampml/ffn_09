@@ -16,12 +16,14 @@ Rails.application.routes.draw do
   resources :teams, except: %i(edit new)
   resources :news, only: :show
   resources :comments, only: %i(create destroy)
-  resources :players, only: :index
+  resources :players, only: %i(index create)
   get "admincp/show"
 
   scope "/admincp/" do
     resources :news, except: :show
     resources :teams, except: %i(show destroy index)
+    resources :players, only: :new
+    get "/players", to: "players#index", as: "admin_players"
     get "/teams", to: "teams#index", as: "admin_teams"
   end
 

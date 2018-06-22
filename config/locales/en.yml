@@ -55,6 +55,7 @@ en:
       txt_news: "News"
       txt_team: "Team"
       txt_contact: "Contact"
+      txt_player: "Player"
       admincp: "AdminCP"
   sessions:
     new:
@@ -194,3 +195,14 @@ en:
       president: "President: %{var}"
     index:
       title: "All Players"
+    form:
+      content1: "There's a new player in town"
+      player: "Player"
+      name_holder: "Player's name"
+      dob_holder: "Player's date of birth"
+      position_holder: "Position"
+      p_number: "T-shirt number"
+      pic_title: "Player avatar"
+      select_team: "Select player's team"
+    new:
+      btn_text: "Create player"

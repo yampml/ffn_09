@@ -6,6 +6,8 @@ class Team < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :alphabet, ->{order name: :asc}
+
   mount_uploader :picture, PictureUploader
   mount_uploader :logo, LogoUploader
 end

@@ -1,7 +1,7 @@
 class Player < ApplicationRecord
   has_many :transfers
-  belongs_to :team
-  belongs_to :country
+  belongs_to :team, optional: true
+  belongs_to :country, optional: true
 
   validates :name, presence: true
   validates :p_number, numericality: {only_integer: true}, presence: true

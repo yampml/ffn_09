@@ -1,5 +1,5 @@
 <div class="col-sm-1 col-md-3">
-  <div class="panel-group" id="accordion">
+  <div class="panel-group accordion">
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -71,13 +71,13 @@
             <tr>
               <td>
                 <span class="glyphicon glyphicon-pencil text-success"></span>
-                <%= link_to t(".players"), "#" %>
+                <%= link_to t(".players"), admin_players_path %>
               </td>
             </tr>
             <tr>
               <td>
                 <span class="glyphicon glyphicon-pencil text-success"></span>
-                <%= link_to t(".create_player"), "#" %>
+                <%= link_to t(".create_player"), new_player_path %>
               </td>
             </tr>
           </table>
