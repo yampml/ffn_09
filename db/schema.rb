@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622032033) do
+ActiveRecord::Schema.define(version: 20180622074127) do
 
   create_table "bets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "coin", precision: 10, scale: 2, null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20180622032033) do
     t.bigint "continent_id"
     t.index ["continent_id"], name: "index_countries_on_continent_id"
     t.index ["name"], name: "index_countries_on_name"
+  end
+
+  create_table "league_team_join_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "league_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["league_id"], name: "index_leagues_teams_on_league_id"
+    t.index ["team_id"], name: "index_leagues_teams_on_team_id"
   end
 
   create_table "leagues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
