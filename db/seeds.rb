@@ -39,5 +39,6 @@ end
   description = Faker::Lorem.sentence 6
   Team.create! name: name, stadium: stadium, city: city, coach: coach,
     president: president, description: description,
-    remote_picture_url: "https://jamesproctor28blog.files.wordpress.com/2015/06/barca-2015.jpg"
+    remote_picture_url: "https://jamesproctor28blog.files.wordpress.com/2015/06/barca-2015.jpg",
+    remote_logo_url: "https://www.seeklogo.net/wp-content/uploads/2014/07/fc-barcelona-logo.png"
 end

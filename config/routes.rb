@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   get "admincp/show"
 
   resources :users
-  resources :teams, only: %i(show index)
+  resources :teams, except: %i(edit new)
   resources :news, only: :show
   resources :comments, only: %i(create destroy)
   get "admincp/show"
 
   scope "/admincp/" do
     resources :news, except: :show
-    resources :teams, except: :show
+    resources :teams, except: %i(show destoy)
   end
 
   mount Ckeditor::Engine => "/ckeditor"

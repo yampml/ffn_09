@@ -1,14 +1,28 @@
-<div class="row">
-  <div class="col-md-7">
-    <%= image_tag team.picture.url, class: "team-image-index" if team.picture? %>
-  </div>
-  <div class="col-md-5">
-    <h3><%= link_to team.name, team %></h3>
-    <h4><%= team.coach%></h4>
-    <p><%= team.description %></p>
-    <%= link_to team_path team do %>
-      <button type="button" class= "btn btn-primary"><%= t ".view_details" %></button>
+<% if authorized_admin? current_user %>
+  <li>
+    <%= image_tag team.logo.url, class: "team-logo-index" if team.logo? %>
+    <%= team.name %>
+    <%= link_to team, method: "delete", data: { confirm: t(".affirm_msg") } do %>
+        <button type="button" class= "btn btn-danger pull-right" ><%= t ".delete" %></button>
     <% end %>
+    <%= link_to edit_team_path team do %>
+        <button type="button" class= "btn btn-success pull-right"><%= t ".edit" %></button>
+    <% end %>
+  </li>
+
+<% else %>
+  <div class="row">
+    <div class="col-md-7">
+      <%= image_tag team.picture.url, class: "team-image-index" if team.picture? %>
+    </div>
+    <div class="col-md-5">
+      <h3><%= link_to team.name, team %></h3>
+      <h4><%= team.coach %></h4>
+      <p><%= team.description %></p>
+      <%= link_to team_path team do %>
+        <button type="button" class= "btn btn-primary"><%= t ".view_details" %></button>
+      <% end %>
+    </div>
   </div>
-</div>
-<hr>
+  <hr>
+<% end %>

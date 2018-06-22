@@ -35,6 +35,15 @@ class TeamsController < ApplicationController
     end
   end
 
+  def destroy
+    if @team.destroy
+      flash[:success] = t "flash_deleted_user"
+    else
+      flash[:danger] = t "flash_cannot_delete"
+    end
+    redirect_to teams_path
+  end
+
   private
 
   def team_params
