@@ -138,8 +138,8 @@ en:
       basic_title: "Basic Information"
       recent_title: "Recent Match"
     create:
-      flash_created_team: "Team created"
-      flash_create_failed: "Create team failed"
+      flash_created_team: "Team created!"
+      flash_create_failed: "Create team failed!"
     new:
       btn_text: "Create team"
     edit:
@@ -158,13 +158,16 @@ en:
       txt_home: "Home"
     update:
       flash_updated_team: "Team updated!"
-      flash_update_failed: "Update team failed"
+      flash_update_failed: "Update team failed!"
     index:
       title: "All Teams"
     team:
       view_details: "View details"
       edit: "Edit"
       delete: "Delete"
+    destroy:
+      flash_deleted_team: "Team deleted!"
+      flash_delete_failed: "Delete team failed!"
   comments:
     create:
       comment_failed: "Must have content"
@@ -183,3 +186,11 @@ en:
       player: "Player"
       players: "All players"
       create_player: "Create new player"
+  players:
+    player:
+      dob: "Date of birth: %{var}"
+      position: "Position: %{var}"
+      pnumber: "Player number: %{var}"
+      president: "President: %{var}"
+    index:
+      title: "All Players"

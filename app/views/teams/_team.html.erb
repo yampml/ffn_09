@@ -2,12 +2,9 @@
   <li>
     <%= image_tag team.logo.url, class: "team-logo-index" if team.logo? %>
     <%= team.name %>
-    <%= link_to team, method: "delete", data: { confirm: t(".affirm_msg") } do %>
-        <button type="button" class= "btn btn-danger pull-right" ><%= t ".delete" %></button>
-    <% end %>
-    <%= link_to edit_team_path team do %>
-        <button type="button" class= "btn btn-success pull-right"><%= t ".edit" %></button>
-    <% end %>
+    <%= link_to t(".delete"), team, method: "delete", class: "btn btn-danger pull-right",
+      data: {confirm: t(".affirm_msg")} %>
+    <%= link_to t(".edit"), edit_team_path(team), class: "btn btn-success pull-right" %>
   </li>
 
 <% else %>
@@ -19,9 +16,7 @@
       <h3><%= link_to team.name, team %></h3>
       <h4><%= team.coach %></h4>
       <p><%= team.description %></p>
-      <%= link_to team_path team do %>
-        <button type="button" class= "btn btn-primary"><%= t ".view_details" %></button>
-      <% end %>
+      <%= link_to t(".view_details"), team_path(team), class: "btn btn-primary" do %>
     </div>
   </div>
   <hr>
