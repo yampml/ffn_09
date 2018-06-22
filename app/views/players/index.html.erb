@@ -1,0 +1,11 @@
+<% provide :title, t(".title") %>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h1><%= t ".title" %></h1>
+      <%= render @players %>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

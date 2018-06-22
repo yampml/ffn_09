@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620114726) do
+ActiveRecord::Schema.define(version: 20180622032033) do
 
   create_table "bets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "coin", precision: 10, scale: 2, null: false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20180620114726) do
     t.datetime "updated_at", null: false
     t.bigint "country_id"
     t.bigint "team_id"
+    t.string "picture"
     t.index ["country_id"], name: "index_players_on_country_id"
     t.index ["team_id"], name: "index_players_on_team_id"
   end
