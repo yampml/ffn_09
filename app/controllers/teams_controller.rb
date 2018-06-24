@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
-  before_action :load_team, except: %i(index new create)
+  before_action :load_team, except: %i(index new create remove_player)
   before_action :admin_user, except: %i(show index)
+  before_action :load_remove_player, :load_current_team, only: :remove_player
 
   def index
     @teams = Team.all.paginate page: params[:page], per_page: Settings.per_page
@@ -36,12 +37,27 @@ class TeamsController < ApplicationController
   end
 
   def destroy
+    remove_all_team_players if @team.players.present?
     if @team.destroy
       flash[:success] = t "flash_deleted_team"
     else
       flash[:danger] = t "flash_delete_failed"
     end
     redirect_to teams_path
+  end
+
+  def manage_team_players
+    @team_players = @team.players
+  end
+
+  def remove_player
+    @player.team_id = nil
+    if @player.save
+      flash[:success] = t ".flash_removed_player"
+    else
+      flash[:danger] = t ".flash_remove_failed"
+    end
+    redirect_to manage_team_players_path @current_team
   end
 
   private
@@ -58,9 +74,22 @@ class TeamsController < ApplicationController
     redirect_to root_path
   end
 
-  def admin_user
-    return if authorized_admin? current_user
-    flash[:danger] = t "flash_warning_user"
+  def load_remove_player
+    @player = Player.find_by id: params[:id]
+    return if @player
+    flash[:danger] = t "flash_player_not_found"
     redirect_to root_path
+  end
+
+  def load_current_team
+    @current_team = Team.find_by id: @player.team_id
+    return if @current_team
+    flash[:danger] = t "flash_team_not_found"
+    redirect_to root_path
+  end
+
+  def remove_all_team_players
+    list_team_players = Player.owned_by(@team.id).pluck :id
+    PLayer.where(id: list_team_players).update_all(team_id: nil)
   end
 end

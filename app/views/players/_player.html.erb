@@ -1,19 +1,29 @@
-<div class="well">
-  <div class="media">
-    <p class="pull-left" href="#">
-      <%= image_tag player.picture.url, class: "player-picture-index" if player.picture? %>
-    </p>
-    <div class="media-body">
-      <h2 class="media-heading"><%= player.name %></h2>
-      <p class="text-right"><%= player.team_name %>
-        <%= image_tag player.team.logo.url, class: "team-logo-index" if player.team_logo %></p>
-      <p><%= t ".pnumber", var: player.p_number %></p>
-      <p><%= t ".position", var: player.position %></p>
-      <ul class="list-inline list-unstyled">
-        <li><span><i class="glyphicon glyphicon-calendar"></i><%= player.dob %></span></li>
-        <li>|</li>
-        <span><i class="glyphicon glyphicon-tree-deciduous"></i><%= player.country_name %></span>
-      </ul>
+<% if authorized_admin? current_user %>
+  <li>
+    <%= image_tag player.picture.url, class: "player-small-picture-index" if player.picture? %>
+    <%= player.name %>
+    <%= link_to t(".delete"), delete_player_path(player), method: :delete,
+      class: "btn btn-danger pull-right remove-btn-vertical-centering",
+      data: {confirm: t(".affirm_msg")} %>
+  </li>
+<% else %>
+  <div class="well">
+    <div class="media">
+      <p class="pull-left" href="#">
+        <%= image_tag player.picture.url, class: "player-picture-index" if player.picture? %>
+      </p>
+      <div class="media-body">
+        <h2 class="media-heading"><%= player.name %></h2>
+        <p class="text-right"><%= player.team_name %>
+          <%= image_tag player.team.logo.url, class: "team-logo-index" if player.team_logo %></p>
+        <p><%= t ".pnumber", var: player.p_number %></p>
+        <p><%= t ".position", var: player.position %></p>
+        <ul class="list-inline list-unstyled">
+          <li><span><i class="glyphicon glyphicon-calendar"></i><%= player.dob %></span></li>
+          <li>|</li>
+          <span><i class="glyphicon glyphicon-tree-deciduous"></i><%= player.country_name %></span>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

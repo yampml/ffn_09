@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def load_user
     @user = User.find_by id: params[:id]
-    return unless @user.nil?
+    return if @user
     flash[:danger] = t "flash_user_not_found"
     redirect_to root_path
   end
@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     return if logged_in?
     store_location
     flash[:danger] = t "users.require_loggedin_msg"
-    redirect_to login_url
+    redirect_to login_path
+  end
+
+  def admin_user
+    return if authorized_admin? current_user
+    flash[:danger] = t "flash_warning_user"
+    redirect_to root_path
   end
 end

@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     resources :players, only: :new
     get "/players", to: "players#index", as: "admin_players"
     get "/teams", to: "teams#index", as: "admin_teams"
+    get "/manage_players/:id", to: "teams#manage_team_players", as: "manage_team_players"
+    put "/remove_player/:id", to: "teams#remove_player", as: "remove_player"
+    delete "/delete_player/:id", to: "players#destroy", as: "delete_player"
   end
 
   mount Ckeditor::Engine => "/ckeditor"
