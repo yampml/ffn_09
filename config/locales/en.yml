@@ -129,6 +129,8 @@ en:
       form_placeholder: "Compose new comment..."
       btn_post: "Post"
   teams:
+    flash_player_not_found: "Player not found"
+    flash_team_not_found: "Player's team not found"
     show:
       flash_team_not_found: "Team not found!"
       city: "City: %{var}"
@@ -163,12 +165,22 @@ en:
     index:
       title: "All Teams"
     team:
+      affirm_msg: "You want to delete this team ? This action cannot be undone! "
       view_details: "View details"
       edit: "Edit"
       delete: "Delete"
+      manage_team_players: "Team's players"
     destroy:
       flash_deleted_team: "Team deleted!"
       flash_delete_failed: "Delete team failed!"
+    manage_team_players:
+      title: "Team's players"
+    team_players:
+      remove: "Remove"
+      affirm_msg: "You want to remove this player from team ?"
+    remove_player:
+      flash_removed_player: "Player was removed"
+      flash_remove_failed: "Cannot remove this player"
   comments:
     create:
       comment_failed: "Must have content"
@@ -187,7 +199,9 @@ en:
       player: "Player"
       players: "All players"
       create_player: "Create new player"
+      manage_team_players: "Manage team's players"
   players:
+    flash_player_not_found: "Player not found"
     player:
       dob: "Date of birth: %{var}"
       position: "Position: %{var}"
@@ -206,3 +220,6 @@ en:
       select_team: "Select player's team"
     new:
       btn_text: "Create player"
+    destroy:
+      flash_deleted_player: "Player was deleted"
+      flash_delete_failed: "Delete player failed!"

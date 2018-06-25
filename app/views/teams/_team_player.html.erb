@@ -1,0 +1,7 @@
+<li>
+  <%= image_tag team_player.picture.url, class: "player-small-picture-index" if team_player.picture? %>
+  <%= team_player.name %>
+  <%= link_to t(".remove"), remove_player_path(team_player), method: :put,
+    class: "btn btn-warning pull-right remove-btn-vertical-centering",
+    data: {confirm: t(".affirm_msg")} %>
+</li>

@@ -7,6 +7,7 @@ class Player < ApplicationRecord
   validates :p_number, numericality: {only_integer: true}, presence: true
 
   scope :alphabet, ->{order name: :asc}
+  scope :owned_by, ->(team_id){where "team_id = ?", team_id}
 
   delegate :name, :logo, to: :team, prefix: true, allow_nil: true
   delegate :name, to: :country, prefix: true, allow_nil: true
