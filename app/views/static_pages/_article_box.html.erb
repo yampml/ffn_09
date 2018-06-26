@@ -1,0 +1,10 @@
+<div class="col-md-<%= article_counter==Settings.zero ? 8 : 4 %>">
+  <div class="panel panel-default article-box">
+    <div class="panel-heading">
+      <h4><i class="fa fa-fw"></i><%= link_to article.header, article %></h4>
+    </div>
+    <div class="panel-body">
+      <%= image_tag article.header_img.url, class: "article-image" if article.header_img? %>
+    </div>
+  </div>
+</div>

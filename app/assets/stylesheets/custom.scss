@@ -76,12 +76,35 @@ input {
 
 /* Style page content */
 .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
-    padding: 10px 10px;
+  padding: 10px 10px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.article-box {
+  height: 300px;
+  overflow: hidden
+}
+
+.article-box-index {
+  height: 200px;
+  overflow: hidden
+}
+
+.carousel-box {
+  background-size: 100% 100% !important;
+}
+
+.main-article-image {
+  height: 200px;
+  width: 100%
+}
+
+.article-image {
+  height: 100%;
+  width: 100%
 }

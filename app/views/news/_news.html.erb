@@ -1,8 +1,18 @@
-<li id="<%= news.id %>">
-  <span class="user"><%= link_to news.author_name, news.user %></span>
-  <span class="content"><%= link_to news.header, news_path(news) %></span>
-  <span class="content"><%= news.content %></span>
-  <span class="timestamp">
-    <%= time_ago_in_words news.created_at %>
-  </span>
-</li>
+<div class="col-md-12">
+  <div class="panel panel-default article-box-index">
+    <div class="panel-heading">
+      <h4><i class="fa fa-fw"></i><%= link_to news.header, news_path(news) %></h4>
+    </div>
+    <div class="panel-body">
+    <div class="col-xs-4">
+      <%= image_tag news.header_img.url, class: "article-image" if news.header_img? %>
+    </div>
+    <div class="col-xs-8">
+      <%= t ".postedby" %> <%= link_to news.author_name, news.user %> <%= time_ago_in_words news.created_at %>
+    </div>
+    <div class="col-xs-8">
+      <p><%= news.main_content %></p>
+    </div>
+    </div>
+  </div>
+</div>

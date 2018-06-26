@@ -6,6 +6,10 @@
         <%= form_for @article do |f| %>
         <%= f.label :header, t(".txt_header") %>
         <%= f.text_area :header, placeholder: t(".news_header_placeholder") %>
+        <%= f.label :header_img, t(".txt_header_img") %>
+        <%= f.file_field :header_img, class: "form-control" %>
+        <%= f.label :main_content, t(".txt_main_content") %>
+        <%= f.text_area :main_content, placeholder: t(".main_content_placeholder") %>
         <div class="field">
           <%= f.label :content, t(".txt_content") %>
           <%= f.cktext_area :content, class: "ckeditor" %>
