@@ -7,12 +7,12 @@ class NewsController < ApplicationController
 
   def show
     @article = News.find_by id: params[:id]
-    if @article.nil?
-      flash[:danger] = t ".news_not_found"
-      redirect_to root_path
-    else
+    if @article
       @comments = @article.comments.newest
       store_location
+    else
+      flash[:danger] = t ".news_not_found"
+      redirect_to root_path
     end
   end
 
@@ -36,6 +36,7 @@ class NewsController < ApplicationController
   end
 
   private
+
   def load_latest_news
     @top10_news = News.newest.limit Settings.more_article_num
   end
