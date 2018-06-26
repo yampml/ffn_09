@@ -111,5 +111,35 @@
         </div>
       </div>
     </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+            <span class="glyphicon glyphicon-star-empty">
+            </span><%= t ".achievement" %></a>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>
+                <span class="glyphicon glyphicon-pencil text-success"></span>
+                <%= link_to t(".achievements"), achievements_path %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="glyphicon glyphicon-pencil text-success"></span>
+                <%= link_to t(".create_achievement"), new_achievement_path %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

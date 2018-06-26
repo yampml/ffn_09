@@ -1,0 +1,19 @@
+<% provide :title, t(".title") %>
+<h1 class="page-header"><%= t ".achievements" %></h1>
+<% if authorized_admin? current_user %>
+  <%= render "admincp/sidebar" %>
+<% end %>
+<div class="container">
+  <div class="row">
+    <% if authorized_admin? current_user %>
+      <div class="col-sm-9 col-md-9">
+    <% end %>
+      <div class="well">
+        <ul class="users">
+          <%= render @achievements %>
+        </ul>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</div>
