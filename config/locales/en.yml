@@ -57,6 +57,12 @@ en:
       txt_contact: "Contact"
       txt_player: "Player"
       admincp: "AdminCP"
+  static_pages:
+    home:
+      newest_news: "Newest News"
+      no_news_available: "No News Available"
+      nothing_here: "Nothing here"
+      player_of_the_week: "Player of the week"
   sessions:
     new:
       header: "Log in"
@@ -115,19 +121,31 @@ en:
   news:
     new:
       txt_header: "Header"
+      txt_header_img: "Header Image"
       txt_content: "Content"
+      txt_main_content: "Main content"
       news_header_placeholder: "News header..."
+      main_content_placeholder: "Main content..."
       news_content_placeholder: "Compose news..."
       btn_submit: "Post"
     create:
       news_created_succ_mesg: "News created"
       news_create_failed_msg: "News create failed"
     show:
+      txt_home: "Home"
       news_not_found: "News not found"
+      blog_post: "Blog post"
+      newest_news: "Newest news"
+      posted_by: "Posted by"
+      atdate: "at %{date}"
     comment_form:
       leave_a_comment: "Leave a Comment:"
       form_placeholder: "Compose new comment..."
       btn_post: "Post"
+    index:
+      title: "List news"
+    news:
+      postedby: "Posted by"
   teams:
     flash_player_not_found: "Player not found"
     flash_team_not_found: "Player's team not found"

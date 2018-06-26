@@ -1,103 +1,35 @@
 <div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
 
   <div class="carousel-inner">
-      <div class="item active">
-          <div class="fill" style="background-image:url('https://i.kinja-img.com/gawker-media/image/upload/emm5ymidhzppwm4lbxje.png');"></div>
-          <div class="carousel-caption">
-              <h2>Ronaldo chicken</h2>
-          </div>
-      </div>
-      <div class="item">
-          <div class="fill" style="background-image:url('https://pbs.twimg.com/media/DRu4zH4XUAE6PEE.jpg');"></div>
-          <div class="carousel-caption">
-              <h2>Messi god</h2>
-          </div>
-      </div>
-      <div class="item">
-          <div class="fill" style="background-image:url('https://placehold.it/1900x1080&text=Image Three');"></div>
-          <div class="carousel-caption">
-              <h2>Blah</h2>
-          </div>
-      </div>
+    <%= render partial: "slider",
+      collection: @top5_news[Settings.zero..Settings.homepage_slider_range],
+      as: :slide %>
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="icon-prev"></span>
+    <span class="icon-prev"></span>
   </a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="icon-next"></span>
+    <span class="icon-next"></span>
   </a>
 </div>
 <div class="container">
   <div class="row">
-      <div class="col-lg-12">
-          <h1 class="page-header">
-            Ronaldo kick Messi
-          </h1>
-      </div>
-      <div class="col-md-8">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4><i class="fa fa-fw fa-check"></i>ItalyVladimir</h4>
-              </div>
-              <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                  <a href="#" class="btn btn-default">Learn More</a>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-4">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4><i class="fa fa-fw fa-gift"></i> Freee Kick</h4>
-              </div>
-              <div class="panel-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                  <a href="#" class="btn btn-default">Learn More</a>
-              </div>
-          </div>
-      </div>
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        <%= t ".newest_news" %>
+      </h1>
+    </div>
   </div>
-  <!-- /.row -->
-
-  <!-- Portfolio Section -->
+  <%= render partial: "article_box", collection: @top5_news, as: :article %>
   <div class="row">
-      <div class="col-lg-12">
-          <h2 class="page-header">Player of the week</h2>
-      </div>
-      <div class="col-md-4 col-sm-6">
-          <a href="portfolio-item.html">
-              <img class="img-responsive img-portfolio img-hover" src="https://placehold.it/700x450" alt="">
-          </a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-          <a href="portfolio-item.html">
-              <img class="img-responsive img-portfolio img-hover" src="https://placehold.it/700x450" alt="">
-          </a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-          <a href="portfolio-item.html">
-              <img class="img-responsive img-portfolio img-hover" src="https://placehold.it/700x450" alt="">
-          </a>
-      </div>
-  </div>
-  <!-- /.row -->
-
-  <!-- Features Section -->
-  <div class="row">
-      <div class="col-lg-12">
-          <h2 class="page-header">Modern Business Features</h2>
-      </div>
-      <div class="col-md-6">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      </div>
-      <div class="col-md-6">
-          <img class="img-responsive" src="https://placehold.it/700x450" alt="">
-      </div>
+    <div class="col-lg-12">
+      <h2 class="page-header"><%= t ".player_of_the_week" %></h2>
+    </div>
+    <%= render partial: "top_player", collection: @top3_players, as: :player %>
   </div>
 </div>

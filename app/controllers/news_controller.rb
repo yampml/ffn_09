@@ -1,22 +1,26 @@
 class NewsController < ApplicationController
+  before_action :load_latest_news, only: :show
+
   def index
     @articles = News.newest.paginate page: params[:page], per_page: Settings.per_page
   end
 
   def show
     @article = News.find_by id: params[:id]
-    @comments = @article.comments.newest
-    store_location
-    return if @article
-    flash[:danger] = t ".news_not_found"
-    redirect_to root_url
+    if @article.nil?
+      flash[:danger] = t ".news_not_found"
+      redirect_to root_path
+    else
+      @comments = @article.comments.newest
+      store_location
+    end
   end
 
   def new
     if current_user.admin?
       @article = current_user.news.build
     else
-      redirect_to root_url
+      redirect_to root_path
     end
   end
 
@@ -32,8 +36,11 @@ class NewsController < ApplicationController
   end
 
   private
+  def load_latest_news
+    @top10_news = News.newest.limit Settings.more_article_num
+  end
 
   def news_params
-    params.require(:news).permit :header, :content
+    params.require(:news).permit :header, :content, :header_img, :main_content
   end
 end

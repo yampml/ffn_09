@@ -6,4 +6,6 @@ class News < ApplicationRecord
 
   validates :header, presence: true
   validates :content, presence: true
+
+  mount_uploader :header_img, NewsHeaderImageUploader
 end

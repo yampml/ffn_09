@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625085246) do
+ActiveRecord::Schema.define(version: 20180626023701) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(version: 20180625085246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "header_img"
+    t.string "main_content"
     t.index ["user_id"], name: "index_news_on_user_id"
   end
 

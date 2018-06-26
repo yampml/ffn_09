@@ -1,12 +1,25 @@
 <% provide :title, t(".title") %>
-<%= render "admincp/sidebar" %>
-<div class="main">
-  <div class="container">
-    <div class="col-sm-9 col-md-9">
-      <div class="well">
-        <%= render @articles %>
-        <%= will_paginate @articles %>
+<% if authorized_admin? current_user %>
+  <%= render "admincp/sidebar" %>
+  <div class="main">
+    <div class="container">
+      <div class="col-sm-9 col-md-9">
+        <div class="well">
+          <%= render @articles %>
+          <%= will_paginate @articles %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="main">
+    <div class="container">
+      <div class="col-sm-12 col-md-12">
+        <div class="well">
+          <%= render @articles %>
+          <%= will_paginate @articles %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
