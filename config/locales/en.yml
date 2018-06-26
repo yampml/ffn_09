@@ -190,6 +190,9 @@ en:
       wrong_user: "Wrong user"
   admincp:
     sidebar:
+      achievement: "Achievement"
+      achievements: "All achievements"
+      create_achievement: "Create new achievement"
       article: "Article"
       articles: "Articles"
       create_arc: "Create new article"
@@ -235,3 +238,24 @@ en:
       league_create_success: "League create success"
     show:
       not_found_league: "Not found league"
+  achievements:
+    flash_achievement_not_found: "Achievement not found"
+    new:
+      name_holder: "Achievement's name"
+      received_day_lb: "Received day"
+      select_team: "Select team"
+      title: "New achievement"
+      content1: "Without failure there is no achievement"
+      add_achievement: "Create achievement"
+      pic_title: "Achievement picture"
+    create:
+      flash_created_achievement: "Created achievement"
+      flash_create_failed: "Create achievement failed"
+    destroy:
+      flash_deleted_achievement: "Achievement was deleted"
+      flash_delete_failed: "Delete achievement failed"
+    achievement:
+      affirm_msg: "You want to remove this achievement ?"
+      delete: "Delete"
+    index:
+      title: "Achievements"

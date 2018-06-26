@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622074127) do
+ActiveRecord::Schema.define(version: 20180625085246) do
+
+  create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.date "received_day", null: false
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture"
+    t.index ["team_id"], name: "index_achievements_on_team_id"
+  end
 
   create_table "bets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "coin", precision: 10, scale: 2, null: false
@@ -174,6 +184,7 @@ ActiveRecord::Schema.define(version: 20180622074127) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "achievements", "teams"
   add_foreign_key "bets", "matches"
   add_foreign_key "bets", "users"
   add_foreign_key "comments", "users"

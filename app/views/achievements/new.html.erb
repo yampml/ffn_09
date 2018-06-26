@@ -1,0 +1,38 @@
+<% provide :title, t(".title") %>
+<%= stylesheet_link_tag "body-style" %>
+
+<%= render "admincp/sidebar" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-9">
+      <div class="well">
+        <div class="signup-form">
+          <div class="row">
+            <%= form_for @achievement do |f| %>
+              <h2><%= t ".achievement" %></h2>
+              <p class="hint-text"><%= t ".content1" %></p>
+
+              <div class="form-group">
+                <%= f.text_field :name, class: "form-control",
+                placeholder: t(".name_holder") %>
+              </div>
+              <div class="form-group">
+                <%= f.label t(".received_day_lb") %>
+                <%= f.date_field :received_day, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label t(".select_team") %>
+                <%= f.select :team_id, options_for_select(@team_list) %>
+              </div>
+              <div class="form-group">
+                <%= f.label t(".pic_title") %>
+                <%= f.file_field :picture, class: "form-control" %>
+              </div>
+              <%= f.submit t(".add_achievement"), class: "btn btn-success btn-lg btn-block" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

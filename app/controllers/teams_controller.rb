@@ -39,9 +39,9 @@ class TeamsController < ApplicationController
   def destroy
     remove_all_team_players if @team.players.present?
     if @team.destroy
-      flash[:success] = t "flash_deleted_team"
+      flash[:success] = t ".flash_deleted_team"
     else
-      flash[:danger] = t "flash_delete_failed"
+      flash[:danger] = t ".flash_delete_failed"
     end
     redirect_to teams_path
   end

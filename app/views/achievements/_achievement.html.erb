@@ -1,0 +1,14 @@
+<li>
+  <%= achievement.received_day %>
+  <%= image_tag achievement.picture.url, class: "team-logo-index" if achievement.picture? %>
+  <% if authorized_admin? current_user %>
+    <%= link_to t(".delete"), delete_achievement_path(achievement), method: :delete,
+      class: "btn btn-danger pull-right", data: {confirm: t(".affirm_msg")} %>
+  <% end %>
+  <p class = "btn btn-success pull-center"><%= achievement.name %></p>
+  <% if authorized_admin? current_user %>
+    <p class = "btn btn-primary pull-center"><%= achievement.team_name %></p>
+  <% else %>
+    <p class = "btn btn-primary pull-right"><%= achievement.team_name %></p>
+  <% end %>
+</li>

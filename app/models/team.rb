@@ -8,7 +8,7 @@ class Team < ApplicationRecord
   validates :name, presence: true
 
   scope :alphabet, ->{order name: :asc}
-  scope :load_team_from_ids, ->(id_list) {where "id IN (?)", id_list}
+  scope :load_team_from_ids, ->(ids){where "id IN (?)", ids}
 
   mount_uploader :picture, PictureUploader
   mount_uploader :logo, LogoUploader
