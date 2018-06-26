@@ -200,6 +200,9 @@ en:
       players: "All players"
       create_player: "Create new player"
       manage_team_players: "Manage team's players"
+      league: "League"
+      leagues: "All leagues"
+      create_league: "Create new league"
   players:
     flash_player_not_found: "Player not found"
     player:
@@ -223,3 +226,12 @@ en:
     destroy:
       flash_deleted_player: "Player was deleted"
       flash_delete_failed: "Delete player failed!"
+  leagues:
+    new:
+      league_name: "League Name:"
+      league_name_placeholder: "League name"
+      btn_submit: "Create"
+    create:
+      league_create_success: "League create success"
+    show:
+      not_found_league: "Not found league"

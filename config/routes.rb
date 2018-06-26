@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :news, only: :show
   resources :comments, only: %i(create destroy)
   resources :players, only: %i(index create)
+  resources :leagues, only: :show
   get "admincp/show"
 
   scope "/admincp/" do
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
     get "/manage_players/:id", to: "teams#manage_team_players", as: "manage_team_players"
     put "/remove_player/:id", to: "teams#remove_player", as: "remove_player"
     delete "/delete_player/:id", to: "players#destroy", as: "delete_player"
+    resources :leagues, except: :show
   end
 
   mount Ckeditor::Engine => "/ckeditor"

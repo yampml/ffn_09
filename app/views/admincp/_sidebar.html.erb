@@ -1,12 +1,11 @@
 <div class="col-sm-1 col-md-3">
   <div class="panel-group accordion">
-
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-            <span class="glyphicon glyphicon-folder-close">
-          </span><%= t ".article" %></a>
+            <span class="glyphicon glyphicon-folder-close"></span><%= t ".article" %>
+          </a>
         </h4>
       </div>
       <div id="collapseOne" class="panel-collapse collapse in">
@@ -33,8 +32,8 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-            <span class="glyphicon glyphicon-th">
-          </span><%= t ".team" %></a>
+            <span class="glyphicon glyphicon-th"></span><%= t ".team" %>
+          </a>
         </h4>
       </div>
       <div id="collapseTwo" class="panel-collapse collapse">
@@ -61,8 +60,8 @@
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-            <span class="glyphicon glyphicon-user">
-          </span><%= t ".player" %></a>
+            <span class="glyphicon glyphicon-user"></span><%= t ".player" %>
+          </a>
         </h4>
       </div>
       <div id="collapseThree" class="panel-collapse collapse">
@@ -78,6 +77,34 @@
               <td>
                 <span class="glyphicon glyphicon-pencil text-success"></span>
                 <%= link_to t(".create_player"), new_player_path %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+            <span class="glyphicon glyphicon-th"></span><%= t ".league" %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>
+                <span class="glyphicon glyphicon-pencil text-success"></span>
+                <%= link_to t(".leagues"), leagues_path %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="glyphicon glyphicon-pencil text-success"></span>
+                <%= link_to t(".create_league"), new_league_path %>
               </td>
             </tr>
           </table>
