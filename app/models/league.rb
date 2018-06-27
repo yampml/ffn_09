@@ -6,5 +6,7 @@ class League < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :alphabet, ->{order name: :asc}
+
   mount_uploader :logo, LogoUploader
 end

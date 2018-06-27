@@ -16,3 +16,7 @@ homepage_players_num: 3
 zero: 0
 homepage_slider_range: 2
 limit_number_of_matches: 30
+done_pair_value: "Coming undone"
+undone_pair_value: "Finished done"
+done_value: "done"
+undone_value: "undone"

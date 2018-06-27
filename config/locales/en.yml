@@ -42,6 +42,7 @@ en:
   flash_cannot_delete: "Cannot delete user!"
   comment_del_confirm: "Are you sure?"
   flash_warning_user: "You do not have permission to access this action!"
+  flash_match_not_found: "Match not found"
   time:
     formats:
       hour_minute: "%H:%M"
@@ -60,6 +61,8 @@ en:
       txt_contact: "Contact"
       txt_player: "Player"
       txt_match: "Match"
+      txt_coming_soon: "Coming soon"
+      txt_finish: "Finished"
       admincp: "AdminCP"
   static_pages:
     home:
@@ -188,7 +191,7 @@ en:
       title: "All Teams"
       search_holder: "Search team"
     team:
-      affirm_msg: "You want to delete this team ? This action cannot be undone! "
+      affirm_msg: "You want to delete this team ? This action cannot be undone!"
       view_details: "View details"
       edit: "Edit"
       delete: "Delete"
@@ -298,9 +301,14 @@ en:
       title: "Achievements"
   matches:
     match:
+      update_score: "Update score"
+      intenational: "Intenational"
       bet: "Bet"
+      edit: "Edit"
+      avoid: "Avoid"
       pending: "Pending"
       score: "%{score1} - %{score2}"
+      affirm_msg: "You really want to remove this match? This action cannot be undone!"
     index:
       league: "League"
       day: "Match's day"
@@ -309,3 +317,9 @@ en:
       team: "Team"
       result: "Result"
       title: "All Matches"
+      filter: "Filter"
+      by_league: "By league"
+      by_status: "By status"
+    destroy:
+      flash_deleted_match: "Match was deleted"
+      flash_delete_failed: "Delete failed"

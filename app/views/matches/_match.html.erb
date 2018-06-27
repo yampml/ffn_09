@@ -1,5 +1,9 @@
 <tr>
+  <% if match.league_name %>
   <td><%= match.league_name %></td>
+  <% else %>
+  <td><%= t ".intenational" %></td>
+  <% end %>
   <td><%= match.day %></td>
   <td><%= convert_time match.start_time %></td>
   <td><%= match.stadium %></td>
@@ -18,7 +22,11 @@
       class: "team-logo2-index" if match.team2_matches_logo %>
     <%= match.team2_matches_name %>
   </td>
-  <% if logged_in? %>
+  <% if logged_in? && !authorized_admin?(current_user) %>
     <td><p class = "btn btn-success pull-center"><%= t ".bet" %></p></td>
+  <% end %>
+  <% if authorized_admin? current_user %>
+    <td><%= link_to t(".update_score"), match, method: :put, class: "btn btn-success pull-right" %></td>
+    <td><%= link_to t(".avoid"), match, method: :delete, class: "btn btn-danger pull-right", data: {confirm: t(".affirm_msg")} %></td>
   <% end %>
 </tr>
