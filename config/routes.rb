@@ -17,13 +17,14 @@ Rails.application.routes.draw do
   resources :news, except: %i(edit new)
   resources :comments, only: %i(create destroy)
   resources :players, only: %i(index create show)
-  resources :leagues, only: :show
   resources :matches
+  resources :leagues, except: %i(edit new)
   get "admincp/show"
 
   scope "/admincp/" do
     resources :news, except: %i(show index)
     resources :teams, except: %i(show destroy index)
+    resources :leagues, except: %i(show destroy index)
     resources :players, only: :new
     resources :achievements
     get "/news", to: "news#index", as: "admin_news"
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
     get "/manage_players/:id", to: "teams#manage_team_players", as: "manage_team_players"
     put "/remove_player/:id", to: "teams#remove_player", as: "remove_player"
     delete "/delete_player/:id", to: "players#destroy", as: "delete_player"
-    resources :leagues, except: :show
     delete "/delete_achievement/:id", to: "achievements#destroy", as: :"delete_achievement"
   end
 

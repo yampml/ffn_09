@@ -1,0 +1,14 @@
+<%= form_for @league do |f| %>
+  <%= f.label :name, t(".league_name") %>
+  <%= f.text_area :name, placeholder: t(".league_name_placeholder") %>
+    <%= label_tag :add_team, t(".add_team") %>
+    <%= select_tag :add_teams, options_for_select(@team_not_in_league), multiple: true %>
+  <% if @league.persisted? %>
+    <%= label_tag :remove_team, t(".remove_team") %>
+    <%= select_tag :remove_teams, options_for_select(@team_in_league), multiple: true %>
+  <% end %>
+  <%= f.label :logo, t(".txt_logo") %>
+  <%= f.file_field :logo, class: "form-control" %>
+
+  <%= f.submit t(".btn_submit"), class: "btn btn-primary" %>
+<% end %>

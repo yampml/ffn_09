@@ -2,11 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header"><%= @league.name %></h1>
+      <h1 class="page-header"><%= image_tag @league.logo.url if @league.logo? %><%= @league.name %></h1>
     </div>
   </div>
   <div class="row">
-    <%= @league.name %>
     <br>
     <%= render partial: "teams/team", collection: @league.teams %>
   </div>
