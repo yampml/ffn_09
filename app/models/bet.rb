@@ -4,6 +4,9 @@ class Bet < ApplicationRecord
   belongs_to :user
   belongs_to :match
 
+  enum team: %i(team1 team2)
+
   validates :coin, format: {with: VALID_COIN_REGEX},
     numericality: true
+  validates :team, presence: true
 end

@@ -5,8 +5,14 @@ class MatchesController < ApplicationController
   before_action :load_all_matches, :load_filtered_result, only: :index
   before_action :load_league, :load_league_teams, only: :new
 
+  def show
+    @match = Match.find_by id: params[:id]
+    @bet = user_bet current_user, @match
+    @bet ||= @match.bets.build
+  end
+
   def index
-    @matches = @matches.latest.paginate page: params[:page], per_page: Settings.per_page
+    @matches = @matches.latest.includes(:team1_matches, :team2_matches).paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
@@ -76,5 +82,9 @@ class MatchesController < ApplicationController
     return if @league
     flash[:danger] = t ".not_found_league"
     redirect_to leagues_path
+  end
+
+  def user_bet user, match
+    match.bets.find_by user_id: user.id
   end
 end

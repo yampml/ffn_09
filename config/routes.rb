@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :players, only: %i(index create show)
   resources :matches
   resources :leagues, except: %i(edit new)
+  resources :bets
   get "admincp/show"
   get "matches/new/league/:id", to: "matches#new", as: "league_new_match"
   get "matches/league/:id", to: "matches#load_league_matches", as: "league_all_matches"
