@@ -8,6 +8,7 @@ class Player < ApplicationRecord
 
   scope :alphabet, ->{order name: :asc}
   scope :owned_by, ->(team_id){where "team_id = ?", team_id}
+  scope :load_player_from_ids, ->(ids){where "id IN (?)", ids}
 
   delegate :name, :logo, to: :team, prefix: true, allow_nil: true
   delegate :name, to: :country, prefix: true, allow_nil: true

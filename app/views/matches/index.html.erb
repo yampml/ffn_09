@@ -1,0 +1,28 @@
+<% provide :title, t(".title") %>
+<h1 class="page-header"><%= t ".title" %></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-12">
+      <div class="well">
+        <table class="table table-info">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"><%= t ".league" %></th>
+              <th scope="col"><%= t ".day" %></th>
+              <th scope="col"><%= t ".time" %></th>
+              <th scope="col"><%= t ".stadium" %></th>
+              <th scope="col" class="alignRight"><%= t ".team" %></th>
+              <th scope="col" class="alignCenter"><%= t ".result" %></th>
+              <th scope="col" class="alignLeft"><%= t ".team" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @matches %>
+          </tbody>
+        </table>
+          <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</div>

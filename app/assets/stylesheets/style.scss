@@ -12,6 +12,8 @@ $box-gray: rgba(0, 0, 0, 0.3);
 $very-light-gray: #f7f7f7;
 $black: #2b2f34;
 $gray-lighter: #d3d3d3;
+$vivid-blue: #2196f3;
+$very-light-gray: #f1f1f1;
 
 /* signupform */
 .form-control{
@@ -203,6 +205,10 @@ $gray-lighter: #d3d3d3;
   width: 50px;
   height: 50px;
 }
+.team-logo2-index {
+  width: 30px;
+  height: 30px;
+}
 .player-picture-index {
   width: 300px;
   height: 200px;
@@ -216,4 +222,58 @@ $gray-lighter: #d3d3d3;
 .remove-btn-vertical-centering {
   top: 50%;
   transform: translateY(100%);
+}
+
+/* Config table */
+td.alignRight {
+  text-align: right;
+}
+th.alignRight {
+  text-align: right;
+}
+td.alignLeft {
+  text-align: left;
+}
+th.alignLeft {
+  text-align: left;
+}
+td.alignCenter {
+  text-align: center;
+}
+th.alignCenter {
+  text-align: center;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: $very-light-gray;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: $vivid-blue;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: $vivid-blue;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }

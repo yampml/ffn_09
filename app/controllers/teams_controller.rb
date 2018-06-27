@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all.paginate page: params[:page], per_page: Settings.per_page
+    load_searched_result if params[:search]
   end
 
   def show; end
@@ -90,6 +91,11 @@ class TeamsController < ApplicationController
 
   def remove_all_team_players
     list_team_players = Player.owned_by(@team.id).pluck :id
-    PLayer.where(id: list_team_players).update_all(team_id: nil)
+    PLayer.load_player_from_ids(list_team_players).update_all(team_id: nil)
+  end
+
+  def load_searched_result
+    @teams = Team.search_by_name(params[:search]).alphabet.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 end

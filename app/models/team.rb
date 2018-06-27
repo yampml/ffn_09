@@ -9,7 +9,7 @@ class Team < ApplicationRecord
 
   scope :alphabet, ->{order name: :asc}
   scope :load_team_from_ids, ->(ids){where "id IN (?)", ids}
-
+  scope :search_by_name, ->(name){where "name LIKE CONCAT('%',?,'%')", name}
   mount_uploader :picture, PictureUploader
   mount_uploader :logo, LogoUploader
 end
