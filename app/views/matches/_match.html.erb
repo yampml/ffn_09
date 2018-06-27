@@ -15,7 +15,7 @@
   <% if has_score? match.score1, match.score2 %>
     <td class="alignCenter"><%= t ".score", score1: match.score1, score2: match.score2 %></td>
   <% else %>
-    <td class="alignCenter"><%= t ".pending" %></td>
+    <td class="alignCenter btn btn-primary disabled"><%= t ".pending" %></td>
   <% end %>
   <td>
     <%= image_tag match.team2_matches_logo.url,

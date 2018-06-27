@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :matches
   resources :leagues, except: %i(edit new)
   get "admincp/show"
+  get "matches/new/league/:id", to: "matches#new", as: "league_new_match"
+  get "matches/league/:id", to: "matches#load_league_matches", as: "league_all_matches"
 
   scope "/admincp/" do
     resources :news, except: %i(show index)
@@ -33,7 +35,7 @@ Rails.application.routes.draw do
     get "/manage_players/:id", to: "teams#manage_team_players", as: "manage_team_players"
     put "/remove_player/:id", to: "teams#remove_player", as: "remove_player"
     delete "/delete_player/:id", to: "players#destroy", as: "delete_player"
-    delete "/delete_achievement/:id", to: "achievements#destroy", as: :"delete_achievement"
+    delete "/delete_achievement/:id", to: "achievements#destroy", as: "delete_achievement"
   end
 
   mount Ckeditor::Engine => "/ckeditor"

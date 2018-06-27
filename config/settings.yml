@@ -20,3 +20,5 @@ done_pair_value: "Coming undone"
 undone_pair_value: "Finished done"
 done_value: "done"
 undone_value: "undone"
+min_matchday: "1990-01-01"
+min_score: 0

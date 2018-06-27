@@ -5,6 +5,9 @@
     <%= link_to t(".delete"), league, method: "delete", class: "btn btn-danger pull-right",
       data: {confirm: t(".affirm_msg")} %>
     <%= link_to t(".edit"), edit_league_path(league), class: "btn btn-success pull-right" %>
+    <%= link_to t(".create_match"), league_new_match_path(league),
+      class: "btn btn-info pull-right" %>
+    <%= link_to t(".matches"), league_all_matches_path(league), class: "btn btn-warning pull-right" %>
   </li>
 <% else %>
   <div class="row">

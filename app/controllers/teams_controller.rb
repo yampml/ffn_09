@@ -91,7 +91,7 @@ class TeamsController < ApplicationController
 
   def remove_all_team_players
     list_team_players = Player.owned_by(@team.id).pluck :id
-    PLayer.load_player_from_ids(list_team_players).update_all(team_id: nil)
+    Player.load_player_from_ids(list_team_players).update_all(team_id: nil)
   end
 
   def load_searched_result
