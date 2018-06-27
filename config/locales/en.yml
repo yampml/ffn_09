@@ -42,6 +42,9 @@ en:
   flash_cannot_delete: "Cannot delete user!"
   comment_del_confirm: "Are you sure?"
   flash_warning_user: "You do not have permission to access this action!"
+  time:
+    formats:
+      hour_minute: "%H:%M"
   layouts:
     header:
       txt_foobar_new: "Foobar News"
@@ -56,6 +59,7 @@ en:
       txt_team: "Team"
       txt_contact: "Contact"
       txt_player: "Player"
+      txt_match: "Match"
       admincp: "AdminCP"
   static_pages:
     home:
@@ -182,6 +186,7 @@ en:
       flash_update_failed: "Update team failed!"
     index:
       title: "All Teams"
+      search_holder: "Search team"
     team:
       affirm_msg: "You want to delete this team ? This action cannot be undone! "
       view_details: "View details"
@@ -277,3 +282,16 @@ en:
       delete: "Delete"
     index:
       title: "Achievements"
+  matches:
+    match:
+      bet: "Bet"
+      pending: "Pending"
+      score: "%{score1} - %{score2}"
+    index:
+      league: "League"
+      day: "Match's day"
+      time: "Time"
+      stadium: "Stadium"
+      team: "Team"
+      result: "Result"
+      title: "All Matches"

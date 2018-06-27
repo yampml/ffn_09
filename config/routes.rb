@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :comments, only: %i(create destroy)
   resources :players, only: %i(index create show)
   resources :leagues, only: :show
+  resources :matches
   get "admincp/show"
 
   scope "/admincp/" do

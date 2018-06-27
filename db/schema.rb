@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180626023701) do
+ActiveRecord::Schema.define(version: 20180626140532) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -88,13 +88,6 @@ ActiveRecord::Schema.define(version: 20180626023701) do
     t.index ["country_id"], name: "index_leagues_on_country_id"
   end
 
-  create_table "leagues_teams", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "league_id", null: false
-    t.bigint "team_id", null: false
-    t.index ["league_id"], name: "index_leagues_teams_on_league_id"
-    t.index ["team_id"], name: "index_leagues_teams_on_team_id"
-  end
-
   create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "team1_id", null: false
     t.integer "team2_id", null: false
@@ -103,7 +96,6 @@ ActiveRecord::Schema.define(version: 20180626023701) do
     t.date "day", null: false
     t.time "start_time", null: false
     t.string "stadium"
-    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "league_id"
