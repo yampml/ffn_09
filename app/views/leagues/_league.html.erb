@@ -1,0 +1,20 @@
+<% if authorized_admin? current_user %>
+  <li>
+    <%= image_tag league.logo.url, class: "team-logo-index" if league.logo? %>
+    <%= link_to league.name, league_path(league) %>
+    <%= link_to t(".delete"), league, method: "delete", class: "btn btn-danger pull-right",
+      data: {confirm: t(".affirm_msg")} %>
+    <%= link_to t(".edit"), edit_league_path(league), class: "btn btn-success pull-right" %>
+  </li>
+<% else %>
+  <div class="row">
+    <div class="col-md-7">
+      <%= image_tag league.logo.url, class: "team-image-index" if league.logo? %>
+    </div>
+    <div class="col-md-5">
+      <h3><%= link_to league.name, league %></h3>
+      <%= link_to t(".view_details"), league_path(league), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <hr>
+<% end %>

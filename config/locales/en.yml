@@ -254,13 +254,27 @@ en:
       flash_delete_failed: "Delete player failed!"
   leagues:
     new:
-      league_name: "League Name:"
-      league_name_placeholder: "League name"
       btn_submit: "Create"
+      txt_logo: "League Logo"
     create:
       league_create_success: "League create success"
     show:
       not_found_league: "Not found league"
+    index:
+      title: "List League"
+    form_league:
+      league_name: "League Name:"
+      league_name_placeholder: "League name"
+      btn_submit: "Save"
+      txt_logo: "League logo"
+    league:
+      affirm_msg: "Are you sure?"
+    destroy:
+      flash_deleted_league: "League deleted"
+      flash_delete_failed: "League delete failed"
+    update:
+      flash_updated_league: "League updated"
+      flash_update_failed: "League update failed"
   achievements:
     flash_achievement_not_found: "Achievement not found"
     new:
