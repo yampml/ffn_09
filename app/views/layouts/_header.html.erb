@@ -5,6 +5,8 @@
       <li><%= link_to t(".txt_match"), matches_path %></li>
       <% unless authorized_admin? current_user %>
         <li><%= link_to t(".txt_news"), news_index_path %></li>
+        <li><%= link_to t(".txt_league"), leagues_path %></li>
+        <li><%= link_to t(".txt_match"), matches_path %></li>
         <li><%= link_to t(".txt_team"), teams_path %></li>
         <li><%= link_to t(".txt_player"), players_path %></li>
       <% end %>

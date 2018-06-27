@@ -28,6 +28,12 @@
   <%= render partial: "article_box", collection: @top5_news, as: :article %>
   <div class="row">
     <div class="col-lg-12">
+      <h2 class="page-header"><%= t ".incoming_match" %></h2>
+    </div>
+    <%= render partial: "match_box", collection: @top5_matches, as: :match %>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
       <h2 class="page-header"><%= t ".player_of_the_week" %></h2>
     </div>
     <%= render partial: "top_player", collection: @top3_players, as: :player %>

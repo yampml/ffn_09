@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user, only: %i(create destroy)
-  before_action :comment_of_correct_user, :load_vaf_for_destroy, only: :destroy
+  before_action :comment_of_correct_user, :load_var_for_destroy, only: :destroy
   before_action :load_var_for_create, only: :create
 
   def create
@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
   def destroy
     respond_to do |format|
       if @comment.destroy
-        flash[:success] = t ".delete_success_msg"
         format.html{redirect_to @article}
         format.js
       else
@@ -37,7 +36,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
   end
 
-  def load_vaf_for_destroy
+  def load_var_for_destroy
     @article = @comment.commentable
   end
 

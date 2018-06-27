@@ -1,0 +1,10 @@
+<div class="col-md-<%= css_col_for_partial match_counter %>">
+  <div class="panel panel-default article-box">
+    <div class="panel-heading">
+      <h4><i class="fa fa-fw"></i><%= link_to match.team1_matches.name, match %></h4>
+    </div>
+    <div class="panel-body">
+      <%= image_tag match.team1_matches.picture.url, class: "article-image" if match.team1_matches.picture? %>
+    </div>
+  </div>
+</div>

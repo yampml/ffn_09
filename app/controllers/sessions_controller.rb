@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     @user = User.find_by email: params[:session][:email].downcase
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
-      redirect_to root_url
+      redirect_back_or root_url
     else
       flash.now[:danger] = t ".invalid_login_message"
       render :new
@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
     @user = User.find_by email: a_email.downcase
     if @user.present?
       log_in @user
-      redirect_to @user
+      redirect_back_or root_url
     else
       redirect_to controller: :users, action: :new, name: auth.info.name,
         email: auth.info.email

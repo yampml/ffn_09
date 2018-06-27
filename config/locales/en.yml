@@ -58,6 +58,7 @@ en:
       txt_signup: "Signup"
       txt_news: "News"
       txt_team: "Team"
+      txt_league: "League"
       txt_contact: "Contact"
       txt_player: "Player"
       txt_match: "Match"
@@ -70,6 +71,7 @@ en:
       no_news_available: "No News Available"
       nothing_here: "Nothing here"
       player_of_the_week: "Player of the week"
+      incoming_match: "Incoming match"
   sessions:
     new:
       header: "Log in"
@@ -85,6 +87,7 @@ en:
     create:
       invalid_login_message: "Invalid email/password combination"
   users:
+    require_loggedin_msg: "login to comment"
     new:
       title: "Sign up"
       content1: "Create your account. Its free and only takes a minute."
@@ -354,6 +357,8 @@ en:
       description_title: "Match information"
       bet_now: "Bet now!"
       final_score: "Final score: %{score1} - %{score2}"
+      login_first: "Login to bet for shoes, phone, bike,.... using your power"
+      current_power: "Your current power: "
   bets:
     match_not_found: "Match not found"
     create:

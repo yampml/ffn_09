@@ -1,18 +1,20 @@
 class MatchesController < ApplicationController
-  before_action :admin_user, except: :index
-  before_action :load_match, only: :destroy
+  before_action :admin_user, except: %i(index show)
+  before_action :load_match, only: %i(show destroy)
   before_action :load_all_filter, only: %i(index load_league_matches)
   before_action :load_all_matches, :load_filtered_result, only: :index
   before_action :load_league, :load_league_teams, only: :new
 
   def show
-    @match = Match.find_by id: params[:id]
+    store_location
+    return unless logged_in?
     @bet = user_bet current_user, @match
     @bet ||= @match.bets.build
   end
 
   def index
-    @matches = @matches.latest.includes(:team1_matches, :team2_matches).paginate page: params[:page], per_page: Settings.per_page
+    @matches = @matches.latest.includes(:team1_matches, :team2_matches)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
@@ -70,18 +72,18 @@ class MatchesController < ApplicationController
     @team_list = @league.teams.pluck :name, :id
   end
 
-  def load_match
-    @match = Match.find_by id: params[:id]
-    return if @match
-    flash[:danger] = t "flash_match_not_found"
-    redirect_to root_path
-  end
-
   def load_league
     @league = League.find_by id: params[:id]
     return if @league
     flash[:danger] = t ".not_found_league"
     redirect_to leagues_path
+  end
+
+  def load_match
+    @match = Match.find_by id: params[:id]
+    return if @match
+    flash[:danger] = t ".match_not_found"
+    redirect_to root_path
   end
 
   def user_bet user, match
