@@ -26,8 +26,8 @@ class Match < ApplicationRecord
     end
   end)
 
-  delegate :name, :logo, to: :team1_matches, prefix: true, allow_nil: true
-  delegate :name, :logo, to: :team2_matches, prefix: true, allow_nil: true
+  delegate :name, :logo, :picture, to: :team1_matches, prefix: true, allow_nil: true
+  delegate :name, :logo, :picture, to: :team2_matches, prefix: true, allow_nil: true
   delegate :name, to: :league, prefix: true, allow_nil: true
 
   def check_team_different

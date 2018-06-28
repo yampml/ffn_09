@@ -308,6 +308,7 @@ en:
       bet: "Bet"
       edit: "Edit"
       avoid: "Avoid"
+      to_match: "Go to match"
       pending: "Pending"
       score: "%{score1} - %{score2}"
       affirm_msg: "You really want to remove this match? This action cannot be undone!"
@@ -341,3 +342,23 @@ en:
     new:
       btn_text: "Create battle!"
       title: "New match"
+      handicap: "Handicap"
+    show:
+      title: "Match"
+      description_title:
+      basic_title:
+      day: "Match's day: %{var}"
+      time: "Time: %{var}"
+      stadium: "Stadium: %{var}"
+      handicap: "Handicap: %{var}"
+      description_title: "Match information"
+      bet_now: "Bet now!"
+      final_score: "Final score: %{score1} - %{score2}"
+  bets:
+    match_not_found: "Match not found"
+    create:
+      bet_success: "Bet successfully"
+      bet_failed: "Bet failed by some mysterious reason, but we do not recommend you to investigate it(chac het tien cmnr doi bet)"
+    update:
+      bet_success: "Bet updated successfully"
+      bet_failed: "Bet failed"

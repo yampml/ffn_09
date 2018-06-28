@@ -1,0 +1,52 @@
+<% provide :title, t(".title") %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        <% if @match.team1_matches_logo %>
+          <%= image_tag @match.team1_matches_logo.url %>
+        <% else %>
+          <%= image_tag "no_photo_available.jpg" %>
+        <% end %>
+        <%= @match.team1_matches_name %> - <%= @match.team2_matches_name %>
+        <% if @match.team2_matches_logo %>
+          <%= image_tag @match.team2_matches_logo.url %>
+        <% else %>
+          <%= image_tag "no_photo_available.jpg" %>
+        <% end %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @match.team1_matches_picture.url, class: "match-team-img" if @match.team1_matches_picture %>
+    </div>
+
+    <div class="col-md-4">
+      <h3><%= t ".description_title" %></h3>
+      <ul>
+        <li><%= link_to @match.league_name, league_path(@match.league) %></li>
+        <li><%= t ".day", var: @match.day %></li>
+        <li><%= t ".time", var: convert_time(@match.start_time) %></li>
+        <li><%= t ".stadium", var: @match.stadium %></li>
+        <li><%= t ".handicap", var: @match.handicap %></li>
+        <li><%= t ".final_score", score1: @match.score1, score2: @match.score2 %></li>
+      </ul>
+      <p>Current power: <%= current_user.coin %></p>
+      <%= form_for @bet, class: "form-group" do |f| %>
+        <%= hidden_field_tag :match_id, @match.id %>
+        <%= f.label :coin %>
+        <%= f.number_field :coin %>
+        <% Bet.teams.keys.each do |t| %>
+          <%= f.radio_button :team, t, class: "col-md-1" %>
+          <%= f.label t.to_sym, class: "col-md-3" %>
+        <% end %>
+        <%= f.submit %>
+      <% end %>
+
+    </div>
+    <div class="col-md-4">
+      <%= image_tag @match.team2_matches_picture.url, class: "match-team-img" if @match.team2_matches_picture %>
+    </div>
+  </div>
+</div>
