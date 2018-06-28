@@ -1,18 +1,31 @@
 Rails.application.routes.draw do
+  devise_scope :user do
+    get "/sign_in", to: "users/sessions#new"
+    get "/sign_up" ,to: "users/registrations#new", as: "new_user_registration"
+  end
+
+  devise_for :users, path: "users", controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations",
+    unlocks: "users/unlocks",
+    passwords: "users/passwords",
+    confirmations: "users/confirmations"
+  }
+
   root "static_pages#home"
   get "static_pages/home"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
+
   delete "/logout", to: "sessions#destroy"
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
+
   get "auth/:provider/callback", to: "sessions#create"
   get "auth/failure", to: redirect("/")
   get "login_google", to: redirect("/auth/google_oauth2"), as: "login_google"
   get "login_facebook", to: redirect("/auth/facebook"), as: "login_facebook"
+  resources :users, only: %i(show index)
+
+
   get "admincp/show"
   resources :achievements, only: %i(index create)
-  resources :users
   resources :teams, except: %i(edit new)
   resources :news, except: %i(edit new)
   resources :comments, only: %i(create destroy)

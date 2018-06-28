@@ -1,0 +1,7 @@
+<p><%= t ".hello" %> <%= @resource.email %>!</p>
+
+<p><%= t ".content1" %></p>
+
+<p><%= t ".content2" %></p>
+
+<p><%= link_to t(".content3"), unlock_url(@resource, unlock_token: @token) %></p>

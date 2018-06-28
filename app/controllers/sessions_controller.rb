@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  def new; end
-
   def create
     if params[:normal_login].present?
       login_normal

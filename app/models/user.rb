@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable,
+    :lockable, :confirmable
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_COIN_REGEX = /\A\d{1,8}(\.\d{0,2})?\z/
 
@@ -11,7 +16,10 @@ class User < ApplicationRecord
     presence: true, uniqueness: {case_sensitive: false}
 
   validates :password, length: {minimum: Settings.user_password_minlen},
-    presence: true
+    presence: true, on: :create
+
+  validates :password, length: {minimum: Settings.user_password_minlen},
+    allow_blank: true, on: :update
 
   validates :name, length: {maximum: Settings.user_name_maxlen},
     presence: true
@@ -21,11 +29,9 @@ class User < ApplicationRecord
 
   validates :address, presence: true
 
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, on: :create
 
   enum role: %i(member admin)
-
-  has_secure_password
 
   def self.digest string
     cost = if ActiveModel::SecurePassword.min_cost

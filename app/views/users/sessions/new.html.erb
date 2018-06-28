@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%= stylesheet_link_tag "body-style" %>
 <div class="login-form">
-  <%= form_for(:session, url: login_path) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= hidden_field_tag :normal_login, Settings.login_hidden_value %>
 
     <h2 class="text-center"><%= t ".header" %></h2>
@@ -17,6 +17,7 @@
       <%= link_to login_google_path, class: "btn btn-danger btn-block" do %>
         <i class="fab fa-google"></i><%= t(".sign_in_with") %><b> <%= t".google" %></b>
       <% end %>
+
     </div>
 
     <div class="or-seperator"><i><%= t".or" %></i></div>
@@ -37,9 +38,20 @@
       </div>
     </div>
 
+    <% if devise_mapping.rememberable? -%>
+      <div class="form-group">
+        <div class="input-group">
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me, class: "session_remember" %>
+          <% end %>
+        </div>
+      </div>
+    <% end -%>
+
     <%= f.submit t(".btn_login"), class: "btn btn-success btn-block login-btn" %>
-    <div class="hint-text small"><%= t ".content1" %> <%= link_to t(".register"),
-      signup_path, class: "text-success" %></div>
+    <div class="hint-text small"><%= t ".content1" %>
+      <%= link_to t(".register"), new_user_registration_path, class: "text-success" %>
+    </div>
   <% end %>
 </div>
 

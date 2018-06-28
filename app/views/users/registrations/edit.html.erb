@@ -3,7 +3,8 @@
 <%= stylesheet_link_tag "body-style" %>
 <div class="signup-form">
   <div class="row">
-    <%= form_for @user do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
       <h2><%= t ".update" %></h2>
       <p class="hint-text"><%= t ".content1" %></p>
 
@@ -15,10 +16,21 @@
         <%= f.email_field :email, class: "form-control",
           placeholder: t(".email_holder") %>
       </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div><%= t ".waiting_information" %><%= resource.unconfirmed_email %></div>
+      <% end %>
+
       <div class="form-group">
         <%= f.text_field :address, class: "form-control",
           placeholder: t(".address_holder") %>
       </div>
+
+      <div class="form-group">
+        <%= f.password_field :current_password, class: "form-control", placeholder: t(".current_password") %>
+        <i><%= t ".current_password_notice" %></i>
+      </div>
+
       <div class="form-group">
         <%= f.password_field :password, class: "form-control",
           placeholder: t(".pass_holder") %>
@@ -35,5 +47,13 @@
       <%= link_to t(".link_change_gravatar"), "http://gravatar.com/emails",
         target: "_blank", class: "hint-text" %>
     <% end %>
+
+    <h3><%= t ".unhappy" %></h3>
+
+    <p>
+      <%= button_to t(".cancel_account"), registration_path(resource_name), data: { confirm: t(".acc_cancel_confirm") }, method: :delete %></p>
   </div>
 </div>
+
+
+<%= link_to "Back", :back %>

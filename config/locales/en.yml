@@ -87,37 +87,103 @@ en:
     create:
       invalid_login_message: "Invalid email/password combination"
   users:
+    confirmations:
+      new:
+        header: "Resend confirmation instructions"
+        btn_submit: "Resend confirmation instructions"
+    passwords:
+      new:
+        header: "Forgot your password?"
+        btn_submit: "Send me reset password instructions"
+      edit:
+        header: "Change your password"
+        new_password: "New password"
+        password_confirmation: "Confirm new password"
+        btn_submit: "Change my password"
+    unlocks:
+      new:
+        header: "Resend unlock instructions"
+        btn_submit: "Resend unlock instructions"
+    registrations:
+      new:
+        title: "Sign up"
+        content1: "Create your account. Its free and only takes a minute."
+        name_holder: "Your name"
+        email_holder: "Your email"
+        address_holder: "Your address"
+        pass_holder: "Your password"
+        passconfirm_holder: "Password again, please :D"
+        confirm1: "Create my account"
+        content2: "Already have an account?"
+        signin: "Sign in"
+        content3: "I accept the Terms of Use & Privacy Policy"
+        register: "Register"
+      edit:
+        title: "Update profile"
+        content1: "On the Internet, nobody knows you're a dog "
+        name_holder: "Your name"
+        email_holder: "Your email"
+        address_holder: "Your address"
+        pass_holder: "Your password"
+        passconfirm_holder: "Password again, please :D"
+        confirm1: "Create my account"
+        content2: "Already have an account?"
+        signin: "Sign in"
+        content3: "I accept the Terms of Use & Privacy Policy"
+        register: "Register"
+        save: "Save changes"
+        change: "change"
+        update: "Update"
+        link_change_gravatar: "Change avatar"
+        unhappy: "Unhappy? Cancel my account"
+        cancel_account: "Cancel my account"
+        acc_cancel_confirm: "Are you sure?"
+        current_password: "Current password"
+        current_password_notice: "(we need your current password to confirm your changes)"
+        waiting_information: "Currently waiting confirmation for: "
+    sessions:
+      new:
+        header: "Log in"
+        label_email: "Email"
+        label_password: "Password"
+        btn_login: "Log in"
+        sign_in_with: "Sign in with"
+        facebook: "Facebook"
+        google: "Google"
+        or: "or"
+        content1: "Don't have an account?"
+        register: "Register Now!"
+    mailer:
+      reset_password_instructions:
+        hello: "Hello"
+        content1: "Someone has requested a link to change your password. You can do this through the link below."
+        content2: "Change my password"
+        content3: "If you didn't request this, please ignore this email."
+        content4: "Your password won't change until you access the link above and create a new one."
+      confirmation_instructions:
+        welcome: "Welcome"
+        content1: "You can confirm your account email through the link below:"
+        confirm: "Confirm my account"
+      email_changed:
+        hello: "Hello"
+        content1: "We're contacting you to notify you that your email is being changed to"
+        content2: "We're contacting you to notify you that your email has been changed to"
+      password_change:
+        hello: "Hello"
+        content1: "We're contacting you to notify you that your password has been changed."
+      unlock_instructions:
+        hello: "Hello"
+        content1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        content2: "Click the link below to unlock your account:"
+        content3: "Unlock my account"
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        forgot_password: "Forgot your password?"
+        confirm_instruction: "Didn't receive confirmation instructions?"
+        unlock_instruction: "Didn't receive unlock instructions?"
     require_loggedin_msg: "login to comment"
-    new:
-      title: "Sign up"
-      content1: "Create your account. Its free and only takes a minute."
-      name_holder: "Your name"
-      email_holder: "Your email"
-      address_holder: "Your address"
-      pass_holder: "Your password"
-      passconfirm_holder: "Password again, please :D"
-      confirm1: "Create my account"
-      content2: "Already have an account?"
-      signin: "Sign in"
-      content3: "I accept the Terms of Use & Privacy Policy"
-      register: "Register"
-    edit:
-      title: "Update profile"
-      content1: "On the Internet, nobody knows you're a dog "
-      name_holder: "Your name"
-      email_holder: "Your email"
-      address_holder: "Your address"
-      pass_holder: "Your password"
-      passconfirm_holder: "Password again, please :D"
-      confirm1: "Create my account"
-      content2: "Already have an account?"
-      signin: "Sign in"
-      content3: "I accept the Terms of Use & Privacy Policy"
-      register: "Register"
-      save: "Save changes"
-      change: "change"
-      update: "Update"
-      link_change_gravatar: http://gravatar.com/emails
     show:
       name: "Name"
       email: "Email"
