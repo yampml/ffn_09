@@ -13,6 +13,7 @@ class Team < ApplicationRecord
   scope :search_by_name, ->(name){where "name LIKE CONCAT('%',?,'%')", name}
   scope :not_include, ->(teams){Team.all - teams}
   scope :owned_by, ->(league_id){where league_id: league_id}
+  scope :owner_country, ->(country_id){where country_id: country_id}
   mount_uploader :picture, PictureUploader
   mount_uploader :logo, LogoUploader
 end

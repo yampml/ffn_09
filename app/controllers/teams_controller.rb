@@ -2,10 +2,15 @@ class TeamsController < ApplicationController
   before_action :load_team, except: %i(index new create remove_player)
   before_action :admin_user, except: %i(show index)
   before_action :load_remove_player, :load_current_team, only: :remove_player
+  before_action :load_teams_continents_countries_collections, only: :index
 
   def index
-    @teams = Team.all.paginate page: params[:page], per_page: Settings.per_page
     load_searched_result if params[:search]
+    load_countries_by_continent if params[:continent_id]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show; end
@@ -95,7 +100,18 @@ class TeamsController < ApplicationController
   end
 
   def load_searched_result
-    @teams = Team.search_by_name(params[:search]).alphabet.paginate page: params[:page],
-      per_page: Settings.per_page
+    @teams = @teams.search_by_name(params[:search]) if params[:search]
+    @teams = @teams.owner_country(params[:country_id]) if params[:country_id]
+    @teams = @teams.paginate page: params[:page], per_page: Settings.per_page
+  end
+
+  def load_teams_continents_countries_collections
+    @teams = Team.all.paginate page: params[:page], per_page: Settings.per_page
+    @continent_list = Continent.alphabet.pluck :name, :id
+    @country_list = Country.alphabet.pluck :name, :id
+  end
+
+  def load_countries_by_continent
+    @country_list = Country.owner_continent(params[:continent_id]).pluck :name, :id
   end
 end
