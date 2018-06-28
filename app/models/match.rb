@@ -11,6 +11,17 @@ class Match < ApplicationRecord
   validates :start_time, presence: true
 
   scope :latest, ->{order day: :desc}
+  scope :closest, ->{order day: :asc}
+  scope :owned_by, ->(league_id){where "league_id = ?", league_id}
+  scope :by_status, (lambda do |status|
+    if status == Settings.done_value
+      where "day <= ? AND score1 IS NOT NULL AND score2 IS NOT NULL", Time.zone.today
+    elsif status == Settings.undone_value
+      where "day >= ? AND score1 IS NULL AND score2 IS NULL", Time.zone.today
+    else
+      all
+    end
+  end)
 
   delegate :name, :logo, to: :team1_matches, prefix: true, allow_nil: true
   delegate :name, :logo, to: :team2_matches, prefix: true, allow_nil: true
