@@ -164,7 +164,7 @@ en:
       president: "President: %{var}"
       description_title: "Team Description"
       basic_title: "Basic Information"
-      recent_title: "Recent Match"
+      achievement_title: "Achievement"
     create:
       flash_created_team: "Team created!"
       flash_create_failed: "Create team failed!"
@@ -201,7 +201,7 @@ en:
       flash_delete_failed: "Delete team failed!"
     manage_team_players:
       title: "Team's players"
-    team_players:
+    team_player:
       remove: "Remove"
       affirm_msg: "You want to remove this player from team ?"
     remove_player:
@@ -272,6 +272,8 @@ en:
       txt_logo: "League logo"
     league:
       affirm_msg: "Are you sure?"
+      create_match: "Create match"
+      matches: "All matches"
     destroy:
       flash_deleted_league: "League deleted"
       flash_delete_failed: "League delete failed"
@@ -323,3 +325,19 @@ en:
     destroy:
       flash_deleted_match: "Match was deleted"
       flash_delete_failed: "Delete failed"
+    create:
+      flash_created_match: "Match created!"
+      flash_create_failed: "Create failed!"
+    form:
+      match: "Match"
+      content1: "The battle begins"
+      select_team1: "Select team 1"
+      select_team2: "Select team 2"
+      score1: "Team1's score"
+      score2: "Team2's score"
+      day_holder: "Match day"
+      time_holder: "Start time, format: HH:MM"
+      stadium_holder: "Stadium"
+    new:
+      btn_text: "Create battle!"
+      title: "New match"
