@@ -4,4 +4,9 @@ module ApplicationHelper
     base_title = I18n.t("main_title")
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
+
+  # Return the col-xx-x for views
+  def css_col_for_partial counter
+    counter == 0 ? 8 : 4
+  end
 end

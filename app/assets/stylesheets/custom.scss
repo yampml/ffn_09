@@ -113,3 +113,25 @@ input {
   height: 100%;
   width: 100%
 }
+
+.fixed-box {
+  position: fixed;
+  width: 300px
+}
+
+.caption {
+  width: 100%;
+  position: absolute;
+}
+
+.thumbnail {
+  padding: 15px;
+  border: 0 none;
+  box-shadow: none;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.caption h4 {
+  -webkit-font-smoothing: antialiased;
+}

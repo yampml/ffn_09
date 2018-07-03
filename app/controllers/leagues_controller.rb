@@ -1,4 +1,5 @@
 class LeaguesController < ApplicationController
+  before_action :admin_user, except: %i(show index)
   before_action :new_league, only: :new
   before_action :load_league, only: %i(show edit update destroy)
   before_action :load_team_list, only: %i(new edit)
