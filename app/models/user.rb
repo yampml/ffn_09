@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
     :lockable, :confirmable
+  devise :omniauthable, omniauth_providers: %i(facebook google_oauth2)
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_COIN_REGEX = /\A\d{1,8}(\.\d{0,2})?\z/
 
@@ -40,5 +41,23 @@ class User < ApplicationRecord
              BCrypt::Engine.cost
            end
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def self.from_omniauth auth
+    where(email: auth.info.email).first_or_create do |user|
+      user.email = auth.info.email
+      user.name = auth.info.name
+    end
+  end
+
+  def self.new_with_session params, session
+    super.tap do |user|
+      data = session["devise.data"]
+      if data.present?
+        user.email = data["info"]["email"] if user.email.blank?
+        user.name = data["info"]["name"] if user.name.blank?
+        user.skip_confirmation!
+      end
+    end
   end
 end

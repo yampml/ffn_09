@@ -10,11 +10,11 @@
     <h2 class="text-center"><%= t ".header" %></h2>
     <div class="text-center social-btn">
 
-      <%= link_to login_facebook_path, class: "btn btn-primary btn-block" do %>
+      <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-block" do %>
         <i class="fab fa-facebook"></i><%= t ".sign_in_with" %><b> <%= t".facebook" %></b>
       <% end %>
 
-      <%= link_to login_google_path, class: "btn btn-danger btn-block" do %>
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-danger btn-block" do %>
         <i class="fab fa-google"></i><%= t(".sign_in_with") %><b> <%= t".google" %></b>
       <% end %>
 

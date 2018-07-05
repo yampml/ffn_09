@@ -87,6 +87,11 @@ en:
     create:
       invalid_login_message: "Invalid email/password combination"
   users:
+    omniauth_callbacks:
+      google_oauth2:
+        successfully_logged_in: "Succesfully logged in"
+      facebook:
+        successfully_logged_in: "Succesfully logged in"
     confirmations:
       new:
         header: "Resend confirmation instructions"
