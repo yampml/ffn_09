@@ -32,6 +32,7 @@ gem "omniauth-facebook"
 gem "figaro"
 gem "ckeditor", github: "galetahub/ckeditor"
 gem "devise", ">= 4.4.3"
+gem "cancancan", "~> 2.0"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"

@@ -15,6 +15,6 @@ module SessionsHelper
   end
 
   def authorized_admin? current_user
-    current_user.present? && current_user.admin? && !current_user?(@user)
+    current_user.try :admin?
   end
 end

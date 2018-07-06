@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+  rescue_from CanCan::AccessDenied do
+    flash[:danger] = t "flash_warning_user"
+    redirect_to root_path
+  end
+
   private
 
   def load_user
@@ -14,10 +19,10 @@ class ApplicationController < ActionController::Base
 
   # Confirms a logged-in user.
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
     store_location
     flash[:danger] = t "users.require_loggedin_msg"
-    redirect_to login_path
+    redirect_to sign_in_path
   end
 
   def admin_user

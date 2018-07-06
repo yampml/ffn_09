@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_action :load_latest_news, only: :show
-  before_action :admin_user, except: %i(show index)
+  load_and_authorize_resource
 
   def index
     @articles = News.newest.paginate page: params[:page], per_page: Settings.per_page
