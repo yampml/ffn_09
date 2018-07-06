@@ -22,10 +22,8 @@ Rails.application.routes.draw do
   get "auth/failure", to: redirect("/")
   get "login_google", to: redirect("/auth/google_oauth2"), as: "login_google"
   get "login_facebook", to: redirect("/auth/facebook"), as: "login_facebook"
-  resources :users, only: %i(show index)
+  resources :users, only: %i(show index destroy)
 
-
-  get "admincp/show"
   resources :achievements, only: %i(index create)
   resources :teams, except: %i(edit new)
   resources :news, except: %i(edit new)
